@@ -14,7 +14,7 @@
         "sitemenutemplatesdoc": "模板制作",
         "sitemenuhtmldoc": "底层HTML",
         "whatisresumate": "什么是Resumate?",
-        "resumateintro": "Resumate是一种利用JSON编写的模板来渲染页面的方式，其对于同样内容出现多次（如自己的学术著作列表）而又很少更新的页面来说十分快捷。举个例子：为了按照一定的格式在网站上显示自己的十篇学术著作，那么需要用HTML编写十次相同的格式代码而放入不同内容——但是通过Resumate，只需要快捷地引用一个模板十次来填写内容就可以了。同时，Resumate支持多语言和不同种类的页面风格主题，所以不用担心支持多语种页面或站点外观的问题。",
+        "resumateintro": "Resumate是一种利用JSON编写的模板来渲染页面的方式，其对于同样内容出现多次（如自己的学术著作列表）而又很少更新的页面来说十分快捷。举个例子：为了按照一定的格式在网站上显示自己的十篇学术著作，那么需要用HTML编写十次相同的格式代码而放入不同内容——但是通过Resumate，只需要快捷地引用一个模板十次来填写内容就可以了。同时，Resumate支持多语言和不同种类的页面风格主题，所以不用担心支持多语种页面或站点外观的问题。<br><br>你也可以在<a href=\"https://github.com/zhxq/resumate/blob/master/definitions/pages/home.json\">这里</a>找到本主页页面的JSON文件定义。",
         "educationexp": "例子：教育经历",
         "educationphdstart": "哈佛大学法学院 法学博士 导师：",
         "educationexampleprof": "Professor R. Sumate",
