@@ -15,6 +15,15 @@
                             "link": "https://resumate.io/",
                             "description": "https://resumate.io/"
                         }
+                    },
+                    " - "
+                    ,
+                    {
+                        "name": "link",
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate",
+                            "description": "GitHub"
+                        }
                     }
                 ]
             }
