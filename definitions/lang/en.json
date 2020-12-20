@@ -22,7 +22,7 @@
         "educationms": "Master of Science in Computer Science at Yale University (2012-2014)",
         "educationbachelor": "Bachelor of Science in Mathematics at Brown University (2008-2012)",
         "educationdescription": "Above (including this paragraph) is rendered from <code>education</code> template of Resumate. I can provide 5 Macros: <code>edu_template_title</code>, <code>edu_template_phd</code>, <code>edu_template_master</code>, <code>edu_template_bachelor</code> and <code>edu_template_comment</code> to the template, and the renderer will figure out the right thing, since the format is pre-defined by the writer of the template already.",
-        "codeforabove": "Code for Above",
+        "codeforabove": "Code for the Example Above",
         "codeforabovecodejsvar": "codeforabovecodeid",
         "codeforabovecode": "{\"name\":\"education\",\"vars\":{\"edu_template_title\":\"$educationexp$\",\"edu_template_phd\":[\"$educationphdstart$\",{\"name\":\"a\",\"attr\":{\"href\":\"https://resumate.io/\"},\"content\":[\"$educationexampleprof$\"]},\"$educationphdend$\"],\"edu_template_master\":\"$educationms$\",\"edu_template_bachelor\":\"$educationbachelor$\",\"edu_template_comment\":\"$educationdescription$\"}}",
         "samplecodeexplain": "Explaination",

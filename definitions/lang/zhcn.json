@@ -22,7 +22,7 @@
         "educationms": "耶鲁大学 计算机硕士 (2012-2014)",
         "educationbachelor": "布朗大学 数学系理学士 (2008-2012)",
         "educationdescription": "以上（包括本行）渲染自Resumate的<code>education</code>模板。在这个部分中，我只需要提供五个宏，分别为<code>edu_template_title</code>, <code>edu_template_phd</code>, <code>edu_template_master</code>, <code>edu_template_bachelor</code>以及<code>edu_template_comment</code>。格式已经由编写者编写好了——自己只需要拿来使用即可。",
-        "codeforabove": "上面部分的代码",
+        "codeforabove": "上面例子的代码",
         "codeforabovecodejsvar": "codeforabovecodeid",
         "codeforabovecode": "{\"name\":\"education\",\"vars\":{\"edu_template_title\":\"$educationexp$\",\"edu_template_phd\":[\"$educationphdstart$\",{\"name\":\"a\",\"attr\":{\"href\":\"https://resumate.io/\"},\"content\":[\"$educationexampleprof$\"]},\"$educationphdend$\"],\"edu_template_master\":\"$educationms$\",\"edu_template_bachelor\":\"$educationbachelor$\",\"edu_template_comment\":\"$educationdescription$\"}}",
         "samplecodeexplain": "代码解释",
