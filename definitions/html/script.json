@@ -1,0 +1,8 @@
+{
+    "name": "script",
+    "type": "def",
+    "html": "script",
+    "close": true,
+    "attr": {},
+    "content": ["$content$"]
+}

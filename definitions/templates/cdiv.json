@@ -1,0 +1,29 @@
+{
+    "type": "template",
+    "name": "cdiv",
+    "default": {
+        "attr": {
+            
+        }
+    },
+    "content": [
+        {
+            "name": "div",
+            "attr": {
+                "style": {
+                    "width": "$width$",
+                    "height": "$height$",
+                    "padding": "$padding$",
+                    "margin": "0 auto",
+                    "max-width": "$maxwidth$"
+                }
+            },
+            "vars": {
+                "content": "$content$"
+            }
+        }
+    ],
+    "vars": {
+        "maxwidth": "700px"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "type": "def",
+    "name": "span",
+    "html": "span",
+    "close": true,
+    "attr": {},
+    "content": ["$content$"]
+}

@@ -1,0 +1,41 @@
+{
+    "name": "education",
+    "type": "template",
+    "content": [
+        {
+            "name": "h3",
+            "content": ["$edu_template_title$"]
+        },
+        {
+            "name": "h5",
+            "content": ["$edu_template_phd$"]
+        },
+        {
+            "name": "h5",
+            "content": ["$edu_template_master$"]
+        },
+        {
+            "name": "h5",
+            "attr": {
+                "style": {
+                    "margin-bottom": "30px"
+                }
+            },
+            "content": ["$edu_template_bachelor$"]
+        },
+        {
+            "name": "cpara",
+            "vars": {
+                "content": ["$edu_template_comment$"],
+                "maxwidth": "800px"
+            }
+        }
+    ],
+    "vars": {
+        "edu_template_title": "Education",
+        "edu_template_phd": "Insert your PhD experience, if any",
+        "edu_template_master": "Insert your Master experience, if any",
+        "edu_template_bachelor": "Insert your Bachelor experience, if any",
+        "edu_template_comment": "Explain and elaborate something more about your education experience here :)"
+    }
+}

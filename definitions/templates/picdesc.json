@@ -1,0 +1,45 @@
+{
+    "type": "template",
+    "name": "picdesc",
+    "close": true,
+    "default": {
+        "attr": {
+            
+        }
+    },
+    "content": [
+        {
+            "name": "div",
+            "attr": {
+                "style": {
+                    "width": "$width$",
+                    "height": "$height$"
+                }
+            },
+            "content": [
+                {
+                    "name": "p",
+                    "content": [
+                        {
+                            "name": "pic",
+                            "attr": {
+                                "style": {
+                                    "width": "$picwidth$",
+                                    "height": "$picheight$",
+                                    "max-width": "100%"
+                                }
+                            },
+                            "vars": {
+                                "src": "$src$"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "h5",
+                    "content": ["$label$"]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "type": "template",
+    "name": "cpara",
+    "default": {
+        "attr": {
+            
+        }
+    },
+    "content": [
+        {
+            "name": "p",
+            "attr": {
+                "style": {
+                    "width": "$width$",
+                    "height": "$height$",
+                    "padding": "$padding$",
+                    "margin": "0 auto",
+                    "max-width": "$maxwidth$"
+                }
+            },
+            "vars": {
+                "content": "$content$"
+            }
+        }
+    ],
+    "vars": {
+        "maxwidth": "700px"
+    }
+}

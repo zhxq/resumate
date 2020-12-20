@@ -1,0 +1,10 @@
+{
+    "name": "code",
+    "type": "def",
+    "html": "code",
+    "close": true,
+    "attr": {
+        "id": "$id$"
+    },
+    "content": ["$content$"]
+}

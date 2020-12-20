@@ -1,0 +1,17 @@
+{
+    "name": "titlewdiv",
+    "type": "template",
+    "content": [
+        {
+            "name": "h3",
+            "content": ["$twp_template_title$"]
+        },
+        {
+            "name": "cdiv",
+            "vars": {
+                "content": ["$twp_template_paragraph$"],
+                "maxwidth": "800px"
+            }
+        }
+    ]
+}

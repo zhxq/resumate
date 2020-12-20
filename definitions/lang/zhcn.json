@@ -1,0 +1,49 @@
+{
+    "name": "zh_cn",
+    "type": "lang",
+    "vars":{
+        "constructing": "在建中",
+        "constructing...": "在建中……",
+        "resumatesitetitle": "Resumate - 用JSON来写你的页面！",
+        "introline1": "用JSON编写的模板来渲染你的网站界面",
+        "introline2": "无需数据库，只需要PHP环境即可",
+        "sitemenutitle": "Resumate",
+        "sitemenuhome": "主页",
+        "sitemenubasics": "入门教程",
+        "sitemenusitesdoc": "站点制作",
+        "sitemenutemplatesdoc": "模板制作",
+        "sitemenuhtmldoc": "底层HTML",
+        "whatisresumate": "什么是Resumate?",
+        "resumateintro": "Resumate是一种利用JSON编写的模板来渲染页面的方式，其对于同样内容出现多次（如自己的学术著作列表）而又很少更新的页面来说十分快捷。举个例子：为了按照一定的格式在网站上显示自己的十篇学术著作，那么需要用HTML编写十次相同的格式代码而放入不同内容——但是通过Resumate，只需要快捷地引用一个模板十次来填写内容就可以了。同时，Resumate支持多语言和不同种类的页面风格主题，所以不用担心支持多语种页面或站点外观的问题。",
+        "educationexp": "例子：教育经历",
+        "educationphdstart": "哈佛大学法学院 法学博士 导师：",
+        "educationexampleprof": "Professor R. Sumate",
+        "educationphdend": " (2014-2019)",
+        "educationms": "耶鲁大学 计算机硕士 (2012-2014)",
+        "educationbachelor": "布朗大学 数学系理学士 (2008-2012)",
+        "educationdescription": "以上（包括本行）渲染自Resumate的<code>education</code>模板。在这个部分中，我只需要提供五个宏，分别为<code>edu_template_title</code>, <code>edu_template_phd</code>, <code>edu_template_master</code>, <code>edu_template_bachelor</code>以及<code>edu_template_comment</code>。格式已经由编写者编写好了——自己只需要拿来使用即可。",
+        "codeforabove": "上面部分的代码",
+        "codeforabovecodejsvar": "codeforabovecodeid",
+        "codeforabovecode": "{\"name\":\"education\",\"vars\":{\"edu_template_title\":\"$educationexp$\",\"edu_template_phd\":[\"$educationphdstart$\",{\"name\":\"a\",\"attr\":{\"href\":\"https://resumate.io/\"},\"content\":[\"$educationexampleprof$\"]},\"$educationphdend$\"],\"edu_template_master\":\"$educationms$\",\"edu_template_bachelor\":\"$educationbachelor$\",\"edu_template_comment\":\"$educationdescription$\"}}",
+        "samplecodeexplain": "代码解释",
+        "samplecodeexplainmain": [
+            "上面的代码表示引用了<code>education</code>模板，并且根据模板的定义给了模板上面所述五个宏。在Resumate解析模板的时候，其会根据定义引用正确的宏，然后显示在页面上。",
+            {
+                "name": "ul",
+                "attr": {
+                    "style": {
+                        "text-align": "left"
+                    }
+                },
+                "content": [
+                    ["<code>edu_template_title</code>是这个段落的标题，其引用了<code>$educationexp$</code>宏——Resumate中的宏引用以$符号开头和结尾。这个宏的定义在语言文件里，会根据不同的语言来显示不同的文本。在本语言里，其值为：“", "$educationexp$", "”，程序在经过解析后会自动将宏替换成预定义的内容。"],
+                    ["<code>edu_template_phd</code>是显示自己博士生经历的位置。在这里，我们提供了一个list。这个list也会被Resumate解析——其引用了<code>$educationphdstart$</code>宏、一个<code>a</code>模板（用于显示链接）、以及最后的<code>$educationphdend$</code>宏。在将该list解析成html字符串后，这个html字符串会作为<code>edu_template_phd</code>传递给解析器继续解析<code>education</code>模板。另外一种写法是将list替换成一句html字符串——Resumate会透明地传递html。"],
+                    ["<code>edu_template_ms</code>是显示自己硕士经历的位置。类似于<code>edu_template_title</code>，这里会将<code>$educationms$</code>宏的值交给<code>edu_template_ms</code>。"],
+                    ["<code>edu_template_bachelor</code>是显示自己学士经历的位置。类似于<code>edu_template_title</code>，这里会将<code>$educationbachelor$</code>宏的值交给<code>edu_template_bachelor</code>。"],
+                    ["<code>edu_template_comment</code>是一个可以用来说一些话的段落。类似于<code>edu_template_title</code>，这里会将<code>$educationdescription$</code>宏的值交给<code>edu_template_comment</code>。"]
+                ]
+            },
+            "在解析了模板并且引用了宏值后，生成的html代码会被输出，然后被浏览器渲染。"
+        ]
+    }
+}

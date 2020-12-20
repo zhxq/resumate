@@ -1,0 +1,43 @@
+{
+    "type": "settings",
+    "theme": "default",
+    "title": "$resumatesitetitle$",
+    "keywords": "Resumate, JSON, HTML",
+    "description": "Resumate - Generate HTML from JSON Templates",
+    "content": "Use JSON-based Templates to Render Your Pages",
+    "index": "home",
+    "menutitle": "$sitemenutitle$",
+    "menu": {
+        "home": {
+            "readable": "$sitemenuhome$",
+            "right": false
+        },
+        "basicsdoc": {
+            "readable": "$sitemenubasics$",
+            "right": false
+        },
+        "sitesdoc": {
+            "readable": "$sitemenusitesdoc$",
+            "right": false
+        },
+        "templatesdoc": {
+            "readable": "$sitemenutemplatesdoc$",
+            "right": false
+        },
+        "htmlsdoc": {
+            "readable": "$sitemenuhtmldoc$",
+            "right": false
+        }
+    },
+    "defaultlang": "zh-cn",
+    "lang": {
+        "en": {
+            "name": "English",
+            "file": "en.json"
+        },
+        "zh-cn": {
+            "name": "中文",
+            "file": "zhcn.json"
+        }
+    }
+}

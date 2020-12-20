@@ -1,0 +1,8 @@
+{
+    "type": "def",
+    "name": "h1",
+    "html": "h1",
+    "close": true,
+    "attr": {},
+    "content": ["$content$"]
+}

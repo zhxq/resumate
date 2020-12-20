@@ -1,0 +1,8 @@
+{
+    "name": "pre",
+    "type": "def",
+    "html": "pre",
+    "close": true,
+    "attr": {},
+    "content": ["$content$"]
+}

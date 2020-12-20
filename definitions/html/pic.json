@@ -1,0 +1,24 @@
+{
+    "type": "def",
+    "name": "pic",
+    "html": "img",
+    "close": false,
+    "default": {
+        "attr": {
+            "style": {
+                "margin": "20px",
+                "padding": "0px"
+            }
+        }
+    },
+    "attr": {
+        "src": "$src$", 
+        "style": {
+            "width": "$width$", 
+            "height": "$height$", 
+            "margin": "$margin$", 
+            "padding": "$padding$"
+        },
+        "class": "$class$"
+    }
+}

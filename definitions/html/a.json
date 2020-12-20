@@ -1,0 +1,12 @@
+{
+    "type": "def",
+    "name": "a",
+    "html": "a",
+    "close": true,
+    "attr": {
+        "href": "$href$", 
+        "style": {"width": "$width$", "height": "$height$", "margin": "$margin$", "padding": "$padding$"},
+        "class": "$class$"
+    },
+    "content": ["$content$"]
+}

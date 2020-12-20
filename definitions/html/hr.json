@@ -1,0 +1,18 @@
+{
+    "type": "def",
+    "name": "hr",
+    "html": "hr",
+    "close": false,
+    "default": {
+        "attr": {
+            "style": {
+                "width": "100%",
+                "padding": "0px"
+            }
+        }
+    },
+    "attr": {
+        "style": {"width": "$width$", "margin": "$margin$", "padding": "$padding$"},
+        "class": "$class$"
+    }
+}

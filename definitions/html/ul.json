@@ -1,0 +1,8 @@
+{
+    "type": "def",
+    "name": "ul",
+    "html": "ul",
+    "close": true,
+    "attr": {},
+    "content": ["<li>", "$content$", "</li>"]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "titlewpara",
+    "type": "template",
+    "content": [
+        {
+            "name": "h3",
+            "content": ["$twp_template_title$"]
+        },
+        {
+            "name": "cpara",
+            "vars": {
+                "content": ["$twp_template_paragraph$"],
+                "maxwidth": "800px"
+            }
+        }
+    ]
+}

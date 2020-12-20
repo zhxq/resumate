@@ -1,0 +1,13 @@
+{
+    "name": "link",
+    "type": "template",
+    "content": [
+        {
+            "name": "a",
+            "attr":{
+                "href": "$link$"
+            },
+            "content": ["$description$"]
+        }
+    ]
+}

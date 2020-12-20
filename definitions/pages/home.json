@@ -1,0 +1,23 @@
+{
+    "name": "home",
+    "type": "page",
+    "content":[
+        {
+            "name": "personal",
+            "vars": {
+                "title": "$sitemenutitle$",
+                "line1": "$introline1$",
+                "line2": "$introline2$",
+                "line3": [
+                    {
+                        "name": "link",
+                        "vars": {
+                            "link": "https://resumate.io/",
+                            "description": "https://resumate.io/"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

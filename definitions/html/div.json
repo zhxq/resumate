@@ -1,0 +1,8 @@
+{
+    "type": "def",
+    "name": "div",
+    "html": "div",
+    "close": true,
+    "attr": {},
+    "content": ["$content$"]
+}

@@ -1,0 +1,16 @@
+{
+    "name": "reverseemail",
+    "type": "template",
+    "content": [
+        {
+            "name": "span",
+            "content": ["$re_template_email$"],
+            "attr":{
+                "style": {
+                    "unicode-bidi": "bidi-override",
+                    "direction": "rtl"
+                }
+            }
+        }
+    ]
+}
