@@ -2,6 +2,10 @@
     "name": "zh_cn",
     "type": "lang",
     "vars":{
+        "introductiontoresumatetitle": "Resumate入门",
+        "introductiontoresumateline1": "Resumate是一个用JSON编写个人主页的利器。您无需会任何代码，只需要按照一定规则引入一些已有的模板就可以开始使用了——当然，如果您对扩展Resumate有兴趣，那么也完全可以定义更多模板。",
+        "introductiontoresumateline2": "最基本的Resumate语法如下所示：",
+        "introductiontoresumateline3": "Resumate分四种<i>可被渲染的</i>配置文件，从大到小分别为：page（页面）, block（块）, template（模板）和html. 它们的语法都很类似（尤其是前三种）。对于每一个JSON配置文件，其都要定义文件名、类型，以及可选的内容和宏（类似于变量）定义部分。刚刚的文件定义了一个页面文件，会被访问者作为正常网页的形式看到。其中的内容按顺序包括了一个带有html的字符串、一个写着“This is a link”且指向http://example.com/的链接、两段JSON的高亮渲染（就像上面你看到的），以及一个叫做someblock的block块。Resumate的字符串也可以直接用来写HTML，且最终会被渲染。",
         "constructing": "在建中",
         "constructing...": "在建中……",
         "outofboxtemplates": "自带模板",

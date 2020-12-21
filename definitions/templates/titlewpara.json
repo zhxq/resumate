@@ -25,6 +25,7 @@
         }
     ],
     "vars": {
-        "twp_template_maxwidth": "800px"
+        "twp_template_maxwidth": "800px",
+        "twp_template_align": "center"
     }
 }

@@ -4,11 +4,6 @@
     "content": [
         {
             "name": "infobox",
-            "attr": {
-                "style": {
-                    
-                }
-            },
             "vars":{
                 "ib_template_title": "$sitemenutitle$",
                 "ib_template_line1": "$introline1$",

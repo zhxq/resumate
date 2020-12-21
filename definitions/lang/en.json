@@ -2,6 +2,10 @@
     "name": "en",
     "type": "lang",
     "vars":{
+        "introductiontoresumatetitle": "Introduction to Resumate",
+        "introductiontoresumateline1": "Resumate is a handy tool to write your personal site. You don't need to know anything about writing codes - just write definitions to tell what you are going to show to your visitors, using some predefined templates. Of course, you can expand functionalities of Resumate by writing your own templates as well.",
+        "introductiontoresumateline2": "Here is a most basic Resumate page configuration file:",
+        "introductiontoresumateline3": "There are four different types of <i>renderable</i> configuration files for Resumate: page, block, template and html, in an decomposing order, and they have similar grammars (especially for the first three kinds). For each JSON configuration file, <code>name</code>, <code>type</code> are required, with optional <code>content</code> and <code>vars</code>. The JSON above defined a page, which will be rendered as a page to be read by visitors. It contains a string with HTML markup, a link to http://example.com/ showing “This is a link”, two highlighted blocks for JSON (just like the one you see above), and quoted a block called <code>someblock</code>. You can write HTML in an ordinary string, and it will be rendered as well since Resumate will transparently pass HTML strings without any treatment.",
         "constructing": "Constructing",
         "constructing...": "Constructing...",
         "outofboxtemplates": "Out of Box",

@@ -1,0 +1,31 @@
+{
+    "name": "basicsdocintro",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "twp_template_title": "$introductiontoresumatetitle$",
+                "twp_template_paragraph": [
+                    "$introductiontoresumateline1$",
+                    "<br><br>",
+                    "$introductiontoresumateline2$",
+                    "<br><br>",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "basicdocjson1",
+                            "jc_template_json": "$basicdocjson1json$"
+                        }
+                    },
+                    "$introductiontoresumateline3$"
+                ],
+                "twp_template_align": "left",
+                "twp_template_maxwidth": "100%"
+            }
+        }
+    ],
+    "vars": {
+        "basicdocjson1json": "{\"name\":\"newpage\",\"type\":\"page\",\"content\":[\"This is a &lt;i&gt;string&lt;/i&gt; that will be parsed as &lt;b&gt;string&lt;/b&gt;\",{\"name\":\"a\",\"attr\":{\"href\":\"http://example.com/\"},\"content\":[\"This is a link\"]},{\"name\":\"jsoncode\",\"vars\":{\"jc_template_json_id\":\"thisisanidforjson\",\"jc_template_json\":\"{\\\"key1\\\": \\\"value1\\\"}\"}},{\"name\":\"jsoncode\",\"vars\":{\"jc_template_json_id\":\"thisisanotherjson\",\"jc_template_json\":\"{\\\"key2\\\": \\\"value2\\\"}\"}},{\"name\":\"someblock\",\"vars\":{\"var1\":\"value1\",\"var2\":\"$toquotesomeotherdefinedvar$\"}}],\"vars\":{\"toquotesomeotherdefinedvar\":\"This is a default value for $toquotesomeotherdefinedvar$\",\"definitionforsomethingelse\":\"Will be used if this Macro is not defined before.\"}}"
+    }
+}
