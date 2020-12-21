@@ -22,7 +22,15 @@
         },
         "templatesdoc": {
             "readable": "$sitemenutemplatesdoc$",
-            "right": false
+            "right": false,
+            "dropdown": {
+                "outofboxtemplates": {
+                    "readable": "$outofboxtemplates$"
+                },
+                "writingtemplates": {
+                    "readable": "$writingtemplates$"
+                }
+            }
         },
         "htmlsdoc": {
             "readable": "$sitemenuhtmldoc$",

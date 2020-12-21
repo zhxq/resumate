@@ -4,6 +4,8 @@
     "vars":{
         "constructing": "在建中",
         "constructing...": "在建中……",
+        "outofboxtemplates": "自带模板",
+        "writingtemplates": "编写新模板",
         "resumatesitetitle": "Resumate - 用JSON来写你的页面！",
         "introline1": "用JSON编写的模板来渲染你的网站界面",
         "introline2": "无需数据库，只需要PHP环境即可",

@@ -84,7 +84,9 @@ function changeActiveStatus(listid) {
 			document.getElementById('lastNaviID').value = 'navid' + i;
 			//alert('navid' + i);
 		}
-		document.getElementById('navid' + i).className="";
+		if (document.getElementById('navid' + i).className != "dropdown"){
+			document.getElementById('navid' + i).className="";
+		}
 	}
 	document.getElementById('navid' + listid).className="active";
 }
@@ -95,7 +97,9 @@ function changeActiveStatusByName(theName) {
 			document.getElementById('lastNaviID').value = 'navid' + i;
 			//alert('navid' + i);
 		}
-		document.getElementById('navid' + i).className="";
+		if (document.getElementById('navid' + i).className != "dropdown"){
+			document.getElementById('navid' + i).className="";
+		}
 	}
 	var nameThings;
 	nameThings = document.getElementsByTagName('li');

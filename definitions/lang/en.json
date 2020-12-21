@@ -4,6 +4,8 @@
     "vars":{
         "constructing": "Constructing",
         "constructing...": "Constructing...",
+        "outofboxtemplates": "Out of Box",
+        "writingtemplates": "Custom",
         "resumatesitetitle": "Resumate - Write Yor Page Using JSON!",
         "introline1": "Use JSON-based templates to render your page",
         "introline2": "PHP environment is the only thing you need!",
