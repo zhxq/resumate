@@ -1,10 +1,10 @@
-# Resumate - JSON-based Templates for Personal Homepage
-
-## What is Resumate?
+# Resumate - Use JSON-based Templates to Create Personal Homepage
 
 Resumate is a way of creating your personal information (CV, academic, etc.) website easily. If you are a Graduate student who is too lazy or just simply don't know how to write code for your personal academic site, you are at the right place. 
 
 ## How to Use Resumate?
+
+You can just download this GitHub repo and change site settings (``settings.json``) and create your pages in ``./definitions/pages`` - you can use the JSON files we have provided for Resumate.io itself as a start. For more information, please read the following sections. We also provide more documentation on Resumate.io.
 
 ### Environment
 
@@ -38,4 +38,4 @@ Templates (located at ``./definitions/templates``) are... templates. This is som
 
 #### HTML definitions
 
-HTML definitions (located at ``./definitions/html``) are definitions for HTML tags. It tells resumate how to translate your Resumate JSON files into HTML tags.
+HTML definitions (located at ``./definitions/html``) are definitions for HTML tags. It tells Resumate how to translate your Resumate JSON files into HTML tags.
