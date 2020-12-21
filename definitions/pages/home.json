@@ -66,8 +66,8 @@
         {
             "name": "titlewdiv",
             "vars": {
-                "twp_template_title": "$codeforabove$",
-                "twp_template_paragraph": [
+                "twd_template_title": "$codeforabove$",
+                "twd_template_paragraph": [
                     {
                         "name": "jsoncode",
                         "vars": {
@@ -81,8 +81,8 @@
         {
             "name": "titlewdiv",
             "vars": {
-                "twp_template_title": "$samplecodeexplain$",
-                "twp_template_paragraph": "$samplecodeexplainmain$"
+                "twd_template_title": "$samplecodeexplain$",
+                "twd_template_paragraph": "$samplecodeexplainmain$"
             }
         }
     ]

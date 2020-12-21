@@ -6,7 +6,9 @@
             "name": "titlewpara",
             "vars": {
                 "twp_template_title": "$constructing$",
-                "twp_template_paragraph": "$constructing...$"
+                "twp_template_paragraph": "$constructing...$",
+                "twp_template_align": "left",
+                "twp_template_maxwidth": "100%"
             }
         }
     ]

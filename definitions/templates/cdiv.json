@@ -15,15 +15,13 @@
                     "height": "$height$",
                     "padding": "$padding$",
                     "margin": "0 auto",
-                    "max-width": "$maxwidth$"
+                    "max-width": "$cdiv_template_maxwidth$"
                 }
             },
-            "vars": {
-                "content": "$content$"
-            }
+            "content": ["$cdiv_template_content$"]
         }
     ],
     "vars": {
-        "maxwidth": "700px"
+        "cdiv_template_maxwidth": "700px"
     }
 }

@@ -15,15 +15,13 @@
                     "height": "$height$",
                     "padding": "$padding$",
                     "margin": "0 auto",
-                    "max-width": "$maxwidth$"
+                    "max-width": "$cpara_template_maxwidth$"
                 }
             },
-            "vars": {
-                "content": "$content$"
-            }
+            "content": ["$cpara_template_content$"]
         }
     ],
     "vars": {
-        "maxwidth": "700px"
+        "cpara_template_maxwidth": "700px"
     }
 }

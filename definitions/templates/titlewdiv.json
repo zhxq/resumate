@@ -3,15 +3,26 @@
     "type": "template",
     "content": [
         {
-            "name": "h3",
-            "content": ["$twp_template_title$"]
-        },
-        {
-            "name": "cdiv",
-            "vars": {
-                "content": ["$twp_template_paragraph$"],
-                "maxwidth": "800px"
-            }
+            "name": "div",
+            "attr": {
+                "style": {
+                    "text-align": "$twd_template_align$"
+                }
+            },
+            "content": [
+                {
+                    "name": "h3",
+                    "content": ["$twd_template_title$"]
+                },
+                {
+                    "name": "cdiv",
+                    "vars": {
+                        "cdiv_template_content": ["$twd_template_paragraph$"],
+                        "cdiv_template_maxwidth": "800px"
+                    }
+                }
+            ]
         }
+        
     ]
 }
