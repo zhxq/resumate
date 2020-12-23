@@ -30,7 +30,7 @@ Pages (located at ``./definitions/pages``) are things that you want to show to y
 
 #### Blocks
 
-Blocks (located at ``./definitions/blocks``) are similar to pages, but it is for the sanity of your pages, providing modularity to your page. If you have a very long page with different sections, you can consider writing each section into a block, and let the page quote these blocks sequentially. In this case, if you want to change a small part of your page, you can just go to that block and change it.
+Blocks (located at ``./definitions/blocks``) are similar to pages, but it is for the sanity of your pages, providing modularity to your page. If you have a very long page with different sections, you can consider writing each section into a block, and let the page refer these blocks sequentially. In this case, if you want to change a small part of your page, you can just go to that block and change it.
 
 #### Templates
 

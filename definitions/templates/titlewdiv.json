@@ -18,10 +18,14 @@
                     "name": "cdiv",
                     "vars": {
                         "cdiv_template_content": ["$twd_template_paragraph$"],
-                        "cdiv_template_maxwidth": "800px"
+                        "cdiv_template_maxwidth": "$twd_template_maxwidth$"
                     }
                 }
             ]
         }
-    ]
+    ],
+    "vars": {
+        "twd_template_maxwidth": "800px",
+        "twd_template_align": "center"
+    }
 }

@@ -1,0 +1,34 @@
+{
+    "name": "basicsdocoutofbox",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "twp_template_title": "$introductiontoresumateoutofboxtitle$",
+                "twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/basicsdocoutofbox.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$introductiontoresumateoutofboxline1$",
+                    "<br><br>",
+                    "$introductiontoresumateoutofboxline2$",
+                    "<br><br>",
+                    "$introductiontoresumateoutofboxline3$",
+                    "<br><br>",
+                    "$introductiontoresumateoutofboxline4$",
+                    "<br><br>",
+                    "$introductiontoresumateoutofboxline5$"
+                ],
+                "twp_template_align": "left",
+                "twp_template_maxwidth": "100%"
+            }
+        }
+    ]
+}

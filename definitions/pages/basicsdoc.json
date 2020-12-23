@@ -3,7 +3,29 @@
     "type": "page",
     "content": [
         {
+            "name": "h2",
+            "content": ["$introductiontoresumatetitle$"]
+        },
+        {
+            "name": "h5",
+            "content": [
+                {
+                    "name": "link", 
+                    "vars": {
+                        "link": "https://github.com/zhxq/resumate/blob/master/definitions/pages/basicsdoc.json",
+                        "description": "$codeforthispage$"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "basicsdocoutofbox"
+        },
+        {
             "name": "basicsdocintro"
+        },
+        {
+            "name": "basicsdoctemplates"
         }
     ]
 }

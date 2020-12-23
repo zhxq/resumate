@@ -1,0 +1,51 @@
+{
+    "name": "basicsdocintro",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "twp_template_title": "$introductiontoresumatetemplatestitle$",
+                "twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/basicsdoctemplates.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$introductiontoresumatetemplatesline1$",
+                    "<br><br>",
+                    "$introductiontoresumatetemplatesline2$",
+                    "<br><br>",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "basicdocjson2",
+                            "jc_template_json": "$basicdocjson2json$"
+                        }
+                    },
+                    "$introductiontoresumatetemplatesline3$",
+                    "<br><br>",
+                    "$introductiontoresumatetemplatesline4$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "quotingtitlewdiv",
+                            "jc_template_json": "$quotingtitlewdiv$"
+                        }
+                    },
+                    "$introductiontoresumatetemplatesline5$"
+                ],
+                "twp_template_align": "left",
+                "twp_template_maxwidth": "100%"
+            }
+        }
+    ],
+    "vars": {
+        "basicdocjson2json": "{\"name\":\"titlewdiv\",\"type\":\"template\",\"content\":[{\"name\":\"div\",\"attr\":{\"style\":{\"text-align\":\"$twd_template_align$\"}},\"content\":[{\"name\":\"h3\",\"content\":[\"$twd_template_title$\"]},{\"name\":\"cdiv\",\"vars\":{\"cdiv_template_content\":[\"$twd_template_paragraph$\"],\"cdiv_template_maxwidth\":\"$twd_template_maxwidth$\"}}]}],\"vars\":{\"twd_template_maxwidth\":\"800px\",\"twd_template_align\":\"center\"}}",
+        "quotingtitlewdiv": "{\"name\":\"titlewdiv\",\"vars\":{\"twd_template_title\":\"$codeforabove$\",\"twd_template_paragraph\":[\"$outofboxtemplates$\", \" ...and let's see some code!\", {\"name\":\"jsoncode\",\"vars\":{\"jc_template_json_id\":\"codeforabovecodejsvar\",\"jc_template_json\":\"$codeforabovecode$\"}}, \"&lt;br&gt;&lt;br&gt;...and that is the end of that chapter.\"]}}"
+    }
+}

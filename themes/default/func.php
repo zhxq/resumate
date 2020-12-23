@@ -11,13 +11,13 @@ function makeMenu(){
             $opt .= ' class="dropdown">';
             $dropdown = '<ul class="dropdown-menu">';
             foreach ($v['dropdown'] as $dk=>$dv){
-                $dropdown .= '<li><a href="javascript:void(0);" onclick="setHash(\'' . $dk . '\')">' . getLocalizedString($dv['readable']) . '</a></li>';
+                $dropdown .= '<li data-name="' . $k . '"><a href="javascript:void(0);" onclick="setHash(\'' . $dk . '\');clickCollapseButton();">' . getLocalizedString($dv['readable']) . '</a></li>';
             }
             $dropdown .= '</ul>';
             $opt .= '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">' . getLocalizedString($v['readable']) . '<span class="caret"></span></a>' . $dropdown;
         }else{
             $opt .= ' onmousedown="changeActiveStatus(\'' . $i . '\');">';
-            $opt .= '<a href="javascript:void(0);" onclick="setHash(\'' . $k . '\')">' . getLocalizedString($v['readable']) . '</a>';
+            $opt .= '<a href="javascript:void(0);" onclick="setHash(\'' . $k . '\');clickCollapseButton();">' . getLocalizedString($v['readable']) . '</a>';
         }
         $opt .= "</li>";
         $i++;

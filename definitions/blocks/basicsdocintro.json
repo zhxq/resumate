@@ -5,11 +5,20 @@
         {
             "name": "titlewpara",
             "vars": {
-                "twp_template_title": "$introductiontoresumatetitle$",
+                "twp_template_title": "$introductiontoresumatebasicstitle$",
                 "twp_template_paragraph": [
-                    "$introductiontoresumateline1$",
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/basicsdocintro.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$introductiontoresumatebasicsline1$",
                     "<br><br>",
-                    "$introductiontoresumateline2$",
+                    "$introductiontoresumatebasicsline2$",
                     "<br><br>",
                     {
                         "name": "jsoncode",
@@ -18,7 +27,11 @@
                             "jc_template_json": "$basicdocjson1json$"
                         }
                     },
-                    "$introductiontoresumateline3$"
+                    "$introductiontoresumatebasicsline3$",
+                    "<br><br>",
+                    "$introductiontoresumatebasicsline4$",
+                    "<br><br>",
+                    "$introductiontoresumatebasicsline5$"
                 ],
                 "twp_template_align": "left",
                 "twp_template_maxwidth": "100%"

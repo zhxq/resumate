@@ -72,43 +72,20 @@ function getToLastNonFloatPage(){
 	setHash(getLastNonFloatHash());
 }
 
-function selectDate(id){
-	if(WdatePicker()!=true){
-	}
-	document.getElementById(id).blur();
-}
-
 function changeActiveStatus(listid) {
-	for (var i = 0; i < $('li[data-type="topmenubutton"]').length; i++){
-		if (document.getElementById('navid' + i).className == "active"){
-			document.getElementById('lastNaviID').value = 'navid' + i;
-			//alert('navid' + i);
-		}
-		if (document.getElementById('navid' + i).className != "dropdown"){
-			document.getElementById('navid' + i).className="";
-		}
-	}
-	document.getElementById('navid' + listid).className="active";
+	var selected = $('li[data-type="topmenubutton"].active');
+	var lastID = selected.length ? selected[0].id : '';
+	$('#lastNaviID').val(lastID.replace('navid', ''));
+	$('li[data-type="topmenubutton"]').removeClass('active');
+	$('#navid' + listid).addClass("active");
 }
 
 function changeActiveStatusByName(theName) {
-	for (var i = 0; i < $('li[data-type="topmenubutton"]').length; i++){
-		if (document.getElementById('navid' + i).className == "active" && document.getElementById('lastNaviID').value != ('navid' + i)){
-			document.getElementById('lastNaviID').value = 'navid' + i;
-			//alert('navid' + i);
-		}
-		if (document.getElementById('navid' + i).className != "dropdown"){
-			document.getElementById('navid' + i).className="";
-		}
-	}
-	var nameThings;
-	nameThings = document.getElementsByTagName('li');
-	for (var i = 0; i < nameThings.length; i++){
-		if (nameThings[i].attributes['data-name'].nodeValue == theName){
-			nameThings[i].className = "active";
-			break;
-		}
-	}
+	var selected = $('li[data-type="topmenubutton"].active');
+	var lastID = selected.length ? selected[0].id : '';
+	$('#lastNaviID').val(lastID.replace('navid', ''));
+	$('li[data-type="topmenubutton"]').removeClass('active');
+	$('li[data-type="topmenubutton"][data-name="' + theName + '"]').addClass('active');
 }
 
 jQuery.cachedScript = function( url, options ) {
