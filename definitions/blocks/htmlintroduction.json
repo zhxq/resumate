@@ -1,0 +1,57 @@
+{
+    "name": "htmlintroduction",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "twp_template_title": "$htmlintroductionbasicstitle$",
+                "twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/htmlintroduction.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$htmlintroductionbasicsline1$",
+                    "<br><br>",
+                    "$htmlintroductionbasicsline2$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "pexample",
+                            "jc_template_json": "$pexample$"
+                        }
+                    },
+                    "$htmlintroductionbasicsline3$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "ulexample",
+                            "jc_template_json": "$ulexample$"
+                        }
+                    },
+                    "$htmlintroductionbasicsline4$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "ulquoteexample",
+                            "jc_template_json": "$ulquoteexample$"
+                        }
+                    },
+                    "$htmlintroductionbasicsline5$"
+                ],
+                "twp_template_align": "left",
+                "twp_template_maxwidth": "100%"
+            }
+        }
+    ],
+    "vars": {
+        "ulexample": "{\"type\":\"def\",\"name\":\"ul\",\"html\":\"ul\",\"close\":true,\"attr\":{},\"content\":[\"&lt;li&gt;\",\"$content$\",\"&lt;/li&gt;\"]}",
+        "pexample": "{\"type\":\"def\",\"name\":\"p\",\"html\":\"p\",\"close\":true,\"attr\":{},\"content\":[\"$content$\"]}",
+        "ulquoteexample": "{\"name\":\"ul\",\"attr\":{\"style\":{\"text-align\":\"left\"}},\"content\":[\"Line 1\",[\"Line 2 - with a Macro: \",\"$somemacro$\"],\"Line 3\",\"Line 4\",\"...\"]}"
+    }
+}

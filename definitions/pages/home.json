@@ -80,5 +80,9 @@
                 "twd_template_paragraph": "$samplecodeexplainmain$"
             }
         }
-    ]
+    ],
+    "vars": {
+        "codeforabovecodejsvar": "codeforabovecodeid",
+        "codeforabovecode": "{\"name\":\"education\",\"vars\":{\"edu_template_title\":\"$educationexp$\",\"edu_template_phd\":[\"$educationphdstart$\",{\"name\":\"link\",\"vars\":{\"link\":\"https://resumate.io/\",\"description\":\"$educationexampleprof$\"}},\"$educationphdend$\"],\"edu_template_master\":\"$educationms$\",\"edu_template_bachelor\":\"$educationbachelor$\",\"edu_template_comment\":\"$educationdescription$\"}}"
+    }
 }
