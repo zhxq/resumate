@@ -1,0 +1,52 @@
+{
+    "name": "pagesintro",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "twp_template_title": "$pagesintrotitle$",
+                "twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/pagesintro.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$pagesintroline1$",
+                    "<br><br>",
+                    "$pagesintroline2$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "page1example",
+                            "jc_template_json": "{\"name\":\"page1\",\"type\":\"page\",\"content\":[{\"name\":\"h2\",\"content\":[\"Page1 Title!\"]},{\"name\":\"blocka\"},{\"name\":\"blockb\"},{\"name\":\"blockc\"}]}"
+                        }
+                    },
+                    "$pagesintroline3$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "page1blockaexample",
+                            "jc_template_json": "{\"name\":\"blocka\",\"type\":\"block\",\"content\":[\"Hi Ma! This is something in a block!\",{\"name\":\"a\",\"attr\":{\"href\":\"http://example.com/\"},\"content\":[\"$toquotesomeotherdefinedvar$\"]},{\"name\":\"jsoncode\",\"vars\":{\"jc_template_json_id\":\"thisisanotherjson\",\"jc_template_json\":\"{\\\"key2\\\": \\\"value2\\\"}\"}},{\"name\":\"someotherblock\",\"vars\":{\"var1\":\"value1\",\"var2\":\"$toquotesomeotherdefinedvar$\"}}],\"vars\":{\"toquotesomeotherdefinedvar\":\"This is a default value for $toquotesomeotherdefinedvar$\",\"definitionforsomethingelse\":\"Will be used if this Macro is not defined before.\"}}"
+                        }
+                    },
+                    "$pagesintroline4$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "jc_template_json_id": "page1jscssexample",
+                            "jc_template_json": "{\"name\":\"page1\",\"type\":\"page\",\"js\":[\"./js/file1.js\",\"https://example.com/example.js\"],\"css\":[\"https://example.com/some.css\",\"./css/my.css\"],\"content\":[{\"name\":\"h2\",\"content\":[\"Page1 Title!\"]},{\"name\":\"blocka\"},{\"name\":\"blockb\"},{\"name\":\"blockc\"}]}"
+                        }
+                    },
+                    "$pagesintroline5$"
+                ],
+                "twp_template_align": "left",
+                "twp_template_maxwidth": "100%"
+            }
+        }
+    ]
+}
