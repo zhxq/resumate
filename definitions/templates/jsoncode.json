@@ -11,7 +11,7 @@
                     "name": "code",
                     "attr": {
                         "class": ["json", "code_snippet"],
-                        "id": "$jc_template_json_id$",
+                        "id": "$_jc_template_json_id$",
                         "style": {
                             "text-align": "left"
                         }
@@ -23,9 +23,9 @@
         {
             "name": "script",
             "content": [
-                "var ", "$jc_template_json_id$", "=", "$jc_template_json$", ";", 
-                "$('#", "$jc_template_json_id$", "').html(JSON.stringify(", "$jc_template_json_id$" , ", undefined, 4));", 
-                "document.querySelectorAll('#", "$jc_template_json_id$", "').forEach((block) => {hljs.highlightBlock(block);});"
+                "var ", "$_jc_template_json_id$", "=", "$_jc_template_json$", ";", 
+                "$('#", "$_jc_template_json_id$", "').html(JSON.stringify(", "$_jc_template_json_id$" , ", undefined, 4));", 
+                "document.querySelectorAll('#", "$_jc_template_json_id$", "').forEach((block) => {hljs.highlightBlock(block);});"
             ]
         }
     ]

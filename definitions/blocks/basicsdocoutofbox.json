@@ -5,8 +5,8 @@
         {
             "name": "titlewpara",
             "vars": {
-                "twp_template_title": "$introductiontoresumateoutofboxtitle$",
-                "twp_template_paragraph": [
+                "_twp_template_title": "$introductiontoresumateoutofboxtitle$",
+                "_twp_template_paragraph": [
                     "<span>", 
                     {
                         "name": "link", 
@@ -26,8 +26,8 @@
                     "<br><br>",
                     "$introductiontoresumateoutofboxline5$"
                 ],
-                "twp_template_align": "left",
-                "twp_template_maxwidth": "100%"
+                "_twp_template_align": "left",
+                "_twp_template_maxwidth": "100%"
             }
         }
     ]

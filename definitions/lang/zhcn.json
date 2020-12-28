@@ -3,8 +3,52 @@
     "type": "lang",
     "vars":{
         "introductiontoresumatetitle": "Resumate入门",
+        "themesdoc": "风格主题",
         "codeforthispage": "本page代码",
         "codeforthisblock": "本block代码",
+        "outofboxtemplatesintrotitle": "自带模板 - 简介",
+        "outofboxtemplatesintroline1": "为了方便用户能够快速上手，Resumate提供了一系列的自带模板供用户使用。本页罗列了在最新版本中的自带模板列表。",
+        "outofboxtemplateslisttitle": "自带模板 - 列表",
+        "cdivintrodescription": "一个能够提供自动居中的<code>div</code>。",
+        "cdivintrocontent": "放置于<code>div</code>里的内容。",
+        "cdivintromaxwidth": "<code>div</code>的最宽宽度。",
+        "cdivintrowidth": "<code>div</code>的宽度。",
+        "cdivintroheight": "<code>div</code>的高度，",
+        "cdivintropadding": "<code>div</code>的padding。",
+        "cparaintrodescription": "一个能够提供自动居中的<code>p</code>。",
+        "cparaintrocontent": "放置于<code>p</code>里的内容。",
+        "cparaintromaxwidth": "<code>p</code>的最宽宽度。",
+        "cparaintrowidth": "<code>p</code>的宽度。",
+        "cparaintroheight": "<code>p</code>的高度。",
+        "cparaintropadding": "<code>p</code>的padding。",
+        "educationintrodescription": "可供放置个人教育经历。",
+        "educationintrotitle": "教育经历段的标题。",
+        "educationintrophd": "自己的博士经历。",
+        "educationintromaster": "自己的硕士经历。",
+        "educationintrobachelor": "自己的学士经历。",
+        "educationintrocomment": "关于自己学术经历的一些解说。",
+        "writingtemplatesintrotitle": "编写模板",
+        "writingtemplatesintroline1": "我们已经看了很多编写配置文件的例子了。编写模板其实和编写页面差不多，现在我们的想法就是如何编写出来有意义的模板来供自己和别人使用。模板是一个最小的功能单元集合，所以我们编写模板的时候需要考虑我们的模板需要完成什么样子的功能。一个非常好的准则是“Unix哲学”，或者换言之“小而精”——一个模块只用来干好一件事。想要对多个模块进行集合那就是交给block的事情了。",
+        "writingtemplatesintroline2": "现在我们就从头开始构建一个实用的模板配置文件吧。假设说我们想要建设一个用来罗列个人工作经历的模板，那么我们需要思考一下我们在这个模板里都要有一些什么内容。一般来说个人经历会有工作职位、公司名、工作时间，以及一小段概述说明自己在工作时进行了什么样的工作等。那么我们就按照这个为标准，建立这个模板吧。首先还是老套路：<code>name</code>和<code>type</code>不能少。既然是关于工作经历的模板，那么我们就将其命名为workexp吧——那么<code>name</code>就需要是workexp，文件名是workexp.json，放置于./definitions/templates目录下，<code>type</code>也自然是template。",
+        "writingtemplatesintroline3": "下一步我们的想法是构建内容。一般来说工作经历会写上个人的职位名、公司名和工作时间年份，外加自己的一些关于经历的解说。我们可以在第一行用一个<code>&lt;h5&gt;</code>来放置工作职位、公司和年份，第二行用一个<code>&lt;p&gt;</code>来放置自己对之前工作的一些评论解说等。我们自然希望上面几种是用户可以在调用模板时直接传递的，所以我们可以将这些选项作为宏。为了尽可能防止宏名称冲突，我们在宏名称前都加一些前缀，一般用模板名称缩写即可。<span style=\"color: red;\">但是注意，给模板需要的宏起名时，必须使用下划线开头，否则可能会出现无法循环嵌套的情况（举个例子：模板A引用了B模板，B引用了C模板，C引用了A模板，那么如果A需要的宏名称不使用下划线开头会导致死循环）。</span>那么我们现在会有以下几个宏：<code>_wexp_template_title</code>, <code>_wexp_template_company</code>, <code>_wexp_template_fromtime</code>, <code>_wexp_template_totime</code>, 以及<code>_wexp_template_description</code>。为了能够方便用户调整文字对齐方向，我们再加一个<code>_wexp_template_align</code>给用户调整文字对齐方向。",
+        "writingtemplatesintroline4": "现在我们的主内容已经写好了，为了能够让用户能够更好地使用模板，我们可为模板的宏设置默认值作为占位，保持模板在哪怕没有接受任何内容时也可以显示一些东西提示用户模板已被成功引入。",
+        "writingtemplatesintroline5": "既然写完了，我们就来通过以下内容来引入模板，来看看模板的效果如何吧。",
+        "writingtemplatesintroincludetemplatequote": "{\"name\":\"workexp\",\"vars\":{\"_wexp_template_title\":\"全栈工程师\",\"_wexp_template_company\":\"上海一二三四软件工程有限公司\",\"_wexp_template_fromtime\":\"1987\",\"_wexp_template_totime\":\"2001\",\"_wexp_template_align\":\"left\",\"_wexp_template_description\":\"一些解说\"}}",
+        "writingtemplatesintroline5.5": "效果如下（若觉得过宽，可以考虑在引用模板外面包一层设置好<code>max-width</code>的<code>&lt;div&gt;</code>）：",
+        "writingtemplatesintroincludetemplate": [
+            {
+                "name": "workexp",
+                "vars": {
+                    "_wexp_template_title": "全栈工程师",
+                    "_wexp_template_company": "上海一二三四软件工程有限公司",
+                    "_wexp_template_fromtime": "1987",
+                    "_wexp_template_totime": "2001",
+                    "_wexp_template_align": "left",
+                    "_wexp_template_description": "一些解说"
+                }
+            }
+        ],
+        "writingtemplatesintroline6": "大功告成！我们的模板就算是完成了。如果需要的话，也可以在JSON配置文件的根部加入<code>js</code>和<code>css</code>两个list来加载一些自己需要的js/css文件，之后可以引用Resumate的<code>&lt;script&gt;</code>标签或者写一个带有<code>&lt;script&gt;</code>的html字符串调用函数即可。当您写完模板后也欢迎在GitHub上联系Resumate的维护者，将自己的模板分享给大家使用——互相帮助是让社区保持活力的最好方法之一。现在你应该学会Resumate的大部分功能了——去小试身手一下，写一下自己的页面吧！",
         "pagesintrotitle": "页面编写",
         "pagesintroline1": "在简介当中，我们已经介绍了如何进行页面配置文件的编写：定义<code>name</code>作为该文件的标识符、<code>type</code>定义了配置文件类型、<code>content</code>这个list定义了引用的内容列表，以及最后的<code>vars</code>作为dict代表着应用给本文件和所有引用文件的宏默认值。",
         "pagesintroline2": "现在我们来从头搭建一个新的页面吧作为例子吧。假设说我们想要建设一个页面<code>page1</code>，其中有三个部分——分别叫做<code>blocka</code>, <code>blockb</code>和<code>blockc</code>。这是一种比较好的代码模式，因为我们将不同部分分离，这样能够保证page文件不会过大，在维护的时候不会出现太多问题。那么我们可以这么定义一个带有主标题，下方是各个block内容的<code>page1</code>：",
@@ -33,16 +77,16 @@
         "introductiontoresumatetemplatestitle": "模板",
         "introductiontoresumatetemplatesline1": "模板是Resumate的核心。通过抽象化的模板，我们可以复用很多小工具（比如格式化过的个人学术论文列表，或者能自动渲染代码的位置）。这样写出来的代码作为一个个小模块，可以被重复利用，甚至也可以轻而易举地分享给其它用户使用。",
         "introductiontoresumatetemplatesline2": "下面是本站经常使用的<code>titlewdiv</code>模板，其内容是一个<code>&lt;div&gt;</code>html标签，其中按顺序包括了一个<code>&lt;h3&gt;</code>html元素用于标题和一个<code>cdiv</code>模板。",
-        "introductiontoresumatetemplatesline3": "看到内部大量引用了<code>twd_template_</code>开头的宏了么？这些将会是该模板以后会用到的内容，在解析成html时会从环境中获取并替换成真正的内容。在建立模板的时候，建议为模板引用的宏名前面加上一定的前缀（比如刚才的<code>twd_template_</code>），以防万一出现宏名称冲突的情况。若有些宏是可选的，或者您希望对该宏进行默认值的定义，那么可以考虑在模板定义根部按照如上各式添加<code>vars</code> dict。",
+        "introductiontoresumatetemplatesline3": "看到内部大量引用了<code>_twd_template_</code>开头的宏了么？这些将会是该模板以后会用到的内容，在解析成html时会从环境中获取并替换成真正的内容。在建立模板的时候，建议为模板引用的宏名前面加上一定的前缀（比如刚才的<code>_twd_template_</code>），以防万一出现宏名称冲突的情况。若有些宏是可选的，或者您希望对该宏进行默认值的定义，那么可以考虑在模板定义根部按照如上各式添加<code>vars</code> dict。",
         "introductiontoresumatetemplatesline4": "当从其他页面、块或者模板（引用者）引用<code>titlewdiv</code>模板（被引用者）的时候，将以下内容放入引用者配置文件的<code>content</code> list就可以引用<code>titlewdiv</code>模板了：",
         "introductiontoresumatetemplatesline5": [
-            "在这里，我们传递给了模板两个宏和对应的值：<code>twd_template_title</code>和<code>twd_template_paragraph</code>. 前者的值为<code>\"$codeforabove$\"</code>，即<code>codeforabove</code>宏内的值。后者则是一个list，里面按照顺序有以下内容：",
+            "在这里，我们传递给了模板两个宏和对应的值：<code>_twd_template_title</code>和<code>_twd_template_paragraph</code>. 前者的值为<code>\"$codeforabove$\"</code>，即<code>codeforabove</code>宏内的值。后者则是一个list，里面按照顺序有以下内容：",
             {
                 "name": "ul",
                 "content": [
                     "<code>outofboxtemplates</code>宏的值、",
                     "一个字符串，内容为<code>\" ...and let's see some code!\"</code>、",
-                    "一个<code>jsoncode</code>模板，对其定义了两个宏<code>jc_template_json_id</code>（json渲染部分的html id）和<code>jc_template_json</code>（要渲染的json字符串）、",
+                    "一个<code>jsoncode</code>模板，对其定义了两个宏<code>_jc_template_json_id</code>（json渲染部分的html id）和<code>_jc_template_json</code>（要渲染的json字符串）、",
                     "一个字符串，内容为<code>\"&lt;br&gt;&lt;br&gt;...and that is the end of that chapter.\"</code>。"
                 ]
             }
@@ -56,9 +100,9 @@
         "introline2": "用JSON编写的模板和内容来渲染你的网站界面",
         "sitemenutitle": "Resumate",
         "sitemenuhome": "主页",
-        "sitemenubasics": "入门教程",
-        "sitemenusitesdoc": "站点制作",
-        "sitemenutemplatesdoc": "模板制作",
+        "sitemenubasics": "入门",
+        "sitemenusitesdoc": "站点",
+        "sitemenutemplatesdoc": "模板",
         "sitemenuhtmldoc": "底层HTML",
         "whatisresumate": "什么是Resumate?",
         "resumateintro": "Resumate是一种利用JSON编写的模板来渲染页面的方式，其对于同样内容出现多次（如自己的学术著作列表）而又很少更新的页面来说十分快捷。举个例子：为了按照一定的格式在网站上显示自己的十篇学术著作，那么需要用HTML编写十次相同的格式代码而放入不同内容——但是通过Resumate，只需要快捷地引用一个模板十次来填写内容就可以了。同时，Resumate支持多语言和不同种类的页面风格主题，所以不用担心支持多语种页面或站点外观的问题。<br><br>你也可以在<a href=\"https://github.com/zhxq/resumate/blob/master/definitions/pages/home.json\">这里</a>找到本主页页面的JSON文件定义。",
@@ -68,7 +112,7 @@
         "educationphdend": " (2014-2019)",
         "educationms": "耶鲁大学 计算机硕士 (2012-2014)",
         "educationbachelor": "布朗大学 数学系理学士 (2008-2012)",
-        "educationdescription": "以上（包括本行）渲染自Resumate的<code>education</code>模板。在这个部分中，我只需要提供五个宏，分别为<code>edu_template_title</code>, <code>edu_template_phd</code>, <code>edu_template_master</code>, <code>edu_template_bachelor</code>以及<code>edu_template_comment</code>。格式已经由编写者编写好了——自己只需要拿来使用即可。",
+        "educationdescription": "以上（包括本行）渲染自Resumate的<code>education</code>模板。在这个部分中，我只需要提供五个宏，分别为<code>_edu_template_title</code>, <code>_edu_template_phd</code>, <code>_edu_template_master</code>, <code>_edu_template_bachelor</code>以及<code>_edu_template_comment</code>。格式已经由编写者编写好了——自己只需要拿来使用即可。",
         "codeforabove": "上面例子的代码",
         "samplecodeexplain": "代码解释",
         "samplecodeexplainmain": [
@@ -81,11 +125,11 @@
                     }
                 },
                 "content": [
-                    ["<code>edu_template_title</code>是这个段落的标题，其引用了<code>$educationexp$</code>宏——Resumate中的宏引用以$符号开头和结尾。这个宏的定义在语言文件里，会根据不同的语言来显示不同的文本。在本语言里，其值为：“", "$educationexp$", "”，程序在经过解析后会自动将宏替换成预定义的内容。"],
-                    ["<code>edu_template_phd</code>是显示自己博士生经历的位置。在这里，我们提供了一个list。这个list也会被Resumate解析——其引用了<code>$educationphdstart$</code>宏、一个<code>link</code>模板（一个基于<code>&lt;a&gt;</code>的，用于显示链接的模板）、以及最后的<code>$educationphdend$</code>宏。在将该list解析成html字符串后，这个html字符串会作为<code>edu_template_phd</code>传递给解析器继续解析<code>education</code>模板。另外一种写法是将list替换成一句html字符串——Resumate会透明地传递html。"],
-                    ["<code>edu_template_ms</code>是显示自己硕士经历的位置。类似于<code>edu_template_title</code>，这里会将<code>$educationms$</code>宏的值交给<code>edu_template_ms</code>。"],
-                    ["<code>edu_template_bachelor</code>是显示自己学士经历的位置。类似于<code>edu_template_title</code>，这里会将<code>$educationbachelor$</code>宏的值交给<code>edu_template_bachelor</code>。"],
-                    ["<code>edu_template_comment</code>是一个可以用来说一些话的段落。类似于<code>edu_template_title</code>，这里会将<code>$educationdescription$</code>宏的值交给<code>edu_template_comment</code>。"]
+                    ["<code>_edu_template_title</code>是这个段落的标题，其引用了<code>$educationexp$</code>宏——Resumate中的宏引用以$符号开头和结尾。这个宏的定义在语言文件里，会根据不同的语言来显示不同的文本。在本语言里，其值为：“", "$educationexp$", "”，程序在经过解析后会自动将宏替换成预定义的内容。"],
+                    ["<code>_edu_template_phd</code>是显示自己博士生经历的位置。在这里，我们提供了一个list。这个list也会被Resumate解析——其引用了<code>$educationphdstart$</code>宏、一个<code>link</code>模板（一个基于<code>&lt;a&gt;</code>的，用于显示链接的模板）、以及最后的<code>$educationphdend$</code>宏。在将该list解析成html字符串后，这个html字符串会作为<code>_edu_template_phd</code>传递给解析器继续解析<code>education</code>模板。另外一种写法是将list替换成一句html字符串——Resumate会透明地传递html。"],
+                    ["<code>_edu_template_ms</code>是显示自己硕士经历的位置。类似于<code>_edu_template_title</code>，这里会将<code>$educationms$</code>宏的值交给<code>_edu_template_ms</code>。"],
+                    ["<code>_edu_template_bachelor</code>是显示自己学士经历的位置。类似于<code>_edu_template_title</code>，这里会将<code>$educationbachelor$</code>宏的值交给<code>_edu_template_bachelor</code>。"],
+                    ["<code>_edu_template_comment</code>是一个可以用来说一些话的段落。类似于<code>_edu_template_title</code>，这里会将<code>$educationdescription$</code>宏的值交给<code>_edu_template_comment</code>。"]
                 ]
             },
             "在解析了模板并且引用了宏值后，生成的html代码会被输出，然后被浏览器渲染。"

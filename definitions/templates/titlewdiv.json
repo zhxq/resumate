@@ -6,26 +6,28 @@
             "name": "div",
             "attr": {
                 "style": {
-                    "text-align": "$twd_template_align$"
+                    "text-align": "$_twd_template_align$"
                 }
             },
             "content": [
                 {
                     "name": "h3",
-                    "content": ["$twd_template_title$"]
+                    "content": ["$_twd_template_title$"]
                 },
                 {
                     "name": "cdiv",
                     "vars": {
-                        "cdiv_template_content": ["$twd_template_paragraph$"],
-                        "cdiv_template_maxwidth": "$twd_template_maxwidth$"
+                        "_cdiv_template_content": ["$_twd_template_paragraph$"],
+                        "_cdiv_template_maxwidth": "$_twd_template_maxwidth$"
                     }
                 }
             ]
         }
     ],
     "vars": {
-        "twd_template_maxwidth": "800px",
-        "twd_template_align": "center"
+        "_twd_template_title": "Title",
+        "_twd_template_paragraph": "Some content in Paragraph",
+        "_twd_template_maxwidth": "800px",
+        "_twd_template_align": "center"
     }
 }

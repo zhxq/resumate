@@ -3,11 +3,10 @@
     "type": "page",
     "content": [
         {
-            "name": "titlewpara",
-            "vars": {
-                "twp_template_title": "$constructing$",
-                "twp_template_paragraph": "$constructing...$"
-            }
+            "name": "outofboxtemplatesintro"
+        },
+        {
+            "name": "outofboxtemplateslist"
         }
     ]
 }

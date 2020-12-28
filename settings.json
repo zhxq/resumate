@@ -35,6 +35,10 @@
         "htmlsdoc": {
             "readable": "$sitemenuhtmldoc$",
             "right": false
+        },
+        "themes": {
+            "readable": "$themesdoc$",
+            "right": false
         }
     },
     "defaultlang": "en",

@@ -1,0 +1,18 @@
+{
+    "name": "templateintro",
+    "type": "template",
+    "content": [
+        {
+            "name": "h4",
+            "content": ["<code>", "$_ti_template_title$", "</code>"]
+        },
+        {
+            "name": "p",
+            "content": "$_ti_template_intro$"
+        },
+        {
+            "name": "ul",
+            "content": "$_ti_template_macros$"
+        }
+    ]
+}

@@ -1,27 +1,22 @@
 {
     "type": "template",
     "name": "cdiv",
-    "default": {
-        "attr": {
-            
-        }
-    },
     "content": [
         {
             "name": "div",
             "attr": {
                 "style": {
-                    "width": "$width$",
-                    "height": "$height$",
-                    "padding": "$padding$",
+                    "width": "$_cdiv_template_width$",
+                    "height": "$_cdiv_template_height$",
+                    "padding": "$_cdiv_template_padding$",
                     "margin": "0 auto",
-                    "max-width": "$cdiv_template_maxwidth$"
+                    "max-width": "$_cdiv_template_maxwidth$"
                 }
             },
-            "content": ["$cdiv_template_content$"]
+            "content": ["$_cdiv_template_content$"]
         }
     ],
     "vars": {
-        "cdiv_template_maxwidth": "700px"
+        "_cdiv_template_maxwidth": "700px"
     }
 }

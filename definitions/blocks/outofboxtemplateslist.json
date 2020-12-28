@@ -1,0 +1,83 @@
+{
+    "name": "outofboxtemplateslist",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewdiv",
+            "vars": {
+                "_twd_template_title": "$outofboxtemplateslisttitle$",
+                "_twd_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/outofboxtemplateslist.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    {
+                        "name": "ul",
+                        "content": [
+                            "$cdivintro$",
+                            "$cparaintro$",
+                            "$educationintro$"
+                        ]
+                    }
+                ],
+                "_twd_template_align": "left",
+                "_twd_template_maxwidth": "100%"
+            }
+        }
+    ],
+    "vars": {
+        "cdivintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "cdiv",
+                    "_ti_template_intro": "$cdivintrodescription$",
+                    "_ti_template_macros": [
+                        ["<code>_cdiv_template_content</code>: ", "$cdivintrocontent$"],
+                        ["<code>_cdiv_template_maxwidth</code>: ", "$cdivintromaxwidth$"],
+                        ["<code>_cdiv_template_width</code>: ", "$cdivintrowidth$"],
+                        ["<code>_cdiv_template_height</code>: ", "$cdivintroheight$"],
+                        ["<code>_cdiv_template_padding</code>: ", "$cdivintropadding$"]
+                    ]
+                }
+            }
+        ],
+        "cparaintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "cpara",
+                    "_ti_template_intro": "$cparaintrodescription$",
+                    "_ti_template_macros": [
+                        ["<code>_cpara_template_content</code>: ", "$cparaintrocontent$"],
+                        ["<code>_cpara_template_maxwidth</code>: ", "$cparaintromaxwidth$"],
+                        ["<code>_cpara_template_width</code>: ", "$cparaintrowidth$"],
+                        ["<code>_cpara_template_height</code>: ", "$cparaintroheight$"],
+                        ["<code>_cpara_template_padding</code>: ", "$cparaintropadding$"]
+                    ]
+                }
+            }
+        ],
+        "educationintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "education",
+                    "_ti_template_intro": "$educationintrodescription$",
+                    "_ti_template_macros": [
+                        ["<code>_edu_template_title</code>: ", "$educationintrotitle$"],
+                        ["<code>_edu_template_phd</code>: ", "$educationintrophd$"],
+                        ["<code>_edu_template_master</code>: ", "$educationintromaster$"],
+                        ["<code>_edu_template_bachelor</code>: ", "$educationintrobachelor$"],
+                        ["<code>_edu_template_comment</code>: ", "$educationintrocomment$"]
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -43,21 +43,23 @@ function parse_all($payload, $attrenv, $varenv){
     global $usedCSS;
     global $usedJS;
     global $definition;
-    $attrenv = array_replace($attrenv);
+    if ($attrenv == null) $attrenv = [];
+    $attrenv = array_replace([], $attrenv);
     if (!array_key_exists('style', $attrenv)){
         $attrenv['style'] = [];
     }
     if (!array_key_exists('class', $attrenv)){
         $attrenv['class'] = [];
     }
-    $varenv = array_replace([], $varenv);
+    if ($varenv == null) $varenv = [];
+    $newvarenv = json_decode(json_encode($varenv), true);
     $return = '';
     if (gettype($payload) == gettype('')){
         if (($keyname = check_var($payload)) !== false){
-            $newPayload = $varenv[$keyname];
+            $newPayload = $newvarenv[$keyname];
             if (gettype($newPayload) == gettype([])){
                 foreach ($newPayload as $np){
-                    $return .= parse_all($np, $attrenv, $varenv);
+                    $return .= parse_all($np, $attrenv, $newvarenv);
                 }
             }else{
                 $return .= $newPayload;
@@ -68,11 +70,11 @@ function parse_all($payload, $attrenv, $varenv){
         }
     }elseif ($payload['name'] == null && !isAssoc($payload)){
         foreach ($payload as $p){
-            $return .= parse_all($p, $attrenv, $varenv);
+            $return .= parse_all($p, $attrenv, $newvarenv);
         }
         return $return;
     }elseif ($payload['name'] != null){
-        if ($definition[$payload['name']] == null){
+        if (!array_key_exists($payload['name'], $definition)){
             //load definition from JSON file
             $defFromDir = '';
             $result = loadfile($loaddir, $payload['name'] . '.json', $defFromDir);
@@ -80,6 +82,9 @@ function parse_all($payload, $attrenv, $varenv){
                 die('Failed to open ' . $payload['name'] . '.json for parsing.');
             }
             $definition[$payload['name']] = json_decode($result, true);
+            if (!array_key_exists('css', $definition[$payload['name']])){
+                $definition[$payload['name']]['css'] = [];
+            }
             foreach ($definition[$payload['name']]['css'] as $css){
                 $cfile = '';
                 if (checkAbsPath($css)){
@@ -88,6 +93,9 @@ function parse_all($payload, $attrenv, $varenv){
                     $cfile = $defFromDir . $css;
                 }
                 array_push($usedCSS, $cfile);
+            }
+            if (!array_key_exists('js', $definition[$payload['name']])){
+                $definition[$payload['name']]['js'] = [];
             }
             foreach ($definition[$payload['name']]['js'] as $js){
                 $jfile = '';
@@ -98,32 +106,29 @@ function parse_all($payload, $attrenv, $varenv){
                 }
                 array_push($usedJS, $jfile);
             }
-            foreach ($definition[$payload['name']]['onload'] as $js){
-                array_push($onloadJS, $js);
-            }
-            if ($definition[$payload['name']]['default'] == null){
+            if (!array_key_exists('default', $definition[$payload['name']])){
                 $definition[$payload['name']]['default'] = [];
             }
-            if ($definition[$payload['name']]['default']['attr'] == null){
+            if (!array_key_exists('attr', $definition[$payload['name']]['default'])){
                 $definition[$payload['name']]['default']['attr'] = [];
             }
-            if ($definition[$payload['name']]['default']['content'] == null){
+            if (!array_key_exists('content', $definition[$payload['name']]['default'])){
                 $definition[$payload['name']]['default']['content'] = [];
             }
         }
     
         switch ($definition[$payload['name']]['type']) {
             case "page":
-                return parse_page($payload, $attrenv, $varenv);
+                return parse_page($payload, $attrenv, $newvarenv);
                 break;
             case "def":
-                return parse_def($payload, $attrenv, $varenv);
+                return parse_def($payload, $attrenv, $newvarenv);
                 break;
             case "block":
-                return parse_block($payload, $attrenv, $varenv);
+                return parse_block($payload, $attrenv, $newvarenv);
                 break;
             case "template":
-                return parse_template($payload, $attrenv, $varenv);
+                return parse_template($payload, $attrenv, $newvarenv);
                 break;
         }
     }else{
@@ -153,25 +158,41 @@ function resolve_varenv($default, $defvars, $vars, $varenv){
     var_dump($varenv);
     echo("\n");
     */
-    
-    $varenv = array_replace($vars, $varenv);
-    foreach ($varenv as $vk=>$vv){
-        if (($keyname = check_var($vv)) !== false){
-            $varenv[$vk] = $varenv[$keyname];
+    $newvarenv = json_decode(json_encode($varenv), true);
+    foreach ($defvars as $k=>$v){
+        if (array_key_exists($k, $newvarenv)){
+            if ($k[0] == '_'){
+                $newvarenv[$k] = $v;
+            }
+        }
+    }
+    foreach ($vars as $k=>$v){
+        if (array_key_exists($k, $newvarenv)){
+            if ($k[0] == '_'){
+                $newvarenv[$k] = $v;
+            }
+        }else{
+            $newvarenv[$k] = $v;
+        }
+    }
+    //$newvarenv = array_replace($vars, $newvarenv);
+    foreach ($newvarenv as $vk=>$vv){
+        while (($keyname = check_var($newvarenv[$vk])) !== false){
+            $newvarenv[$vk] = $newvarenv[$keyname];
         }
     }
     foreach ($defvars as $dk=>$dv){
-        if (!array_key_exists($dk, $varenv)){
-            $varenv[$dk] = $dv;
+        if (!array_key_exists($dk, $newvarenv)){
+            $newvarenv[$dk] = $dv;
         }
     }
-    foreach ($varenv as $vk=>$vv){
+    foreach ($newvarenv as $vk=>$vv){
         if (($keyname = check_var($vv)) !== false){
-            $varenv[$vk] = $varenv[$keyname];
+            $newvarenv[$vk] = $newvarenv[$keyname];
         }else{
-            if (($keyname = check_var($varenv[$dk])) !== false){
+            if (($keyname = check_var($vv)) !== false){
                 if (array_key_exists($keyname, $default)){
-                    $varenv[$dk] = $dv;
+                    $newvarenv[$vk] = $default[$keyname];
                 }
             }
         }
@@ -182,10 +203,10 @@ function resolve_varenv($default, $defvars, $vars, $varenv){
     var_dump($default);
     var_dump($defvars);
     var_dump($vars);
-    var_dump($varenv);
+    var_dump($newvarenv);
     echo("----------------------------------------\n");
     */
-    return $varenv;
+    return $newvarenv;
 }
 
 function resolve_attrenv($default, $defattr, $attr, $attrenv, $varenv){
@@ -279,8 +300,7 @@ function parse_page($payload, $attrenv, $varenv){
     $return = '';
     foreach ($def['content'] as $c){
         if (gettype($c) == gettype('')){
-            if ($c[0] == '$' && $c[-1] == '$'){
-                $keyname = substr($c, 1, -1);
+            if (($keyname = check_var($c)) !== false){
                 $return .= $varenv[$keyname];
             }else{
                 $return .= $c;
@@ -326,8 +346,7 @@ function parse_def($payload, $attrenv, $varenv){
         if ($k == "style"){
             $tmp = '';
             foreach ($v as $sk=>$sv){
-                if ($sv[0] == '$' && $sv[-1] == '$'){
-                    $keyname = substr($sv, 1, -1);
+                if (($keyname = check_var($sv)) !== false){
                     $sv = $attrenv[$keyname];
                     if ($sv == null) $sv = $varenv[$keyname];
                     if ($sv == null){
@@ -371,13 +390,16 @@ function parse_def($payload, $attrenv, $varenv){
     }
     
     
-    if (gettype($payload['content']) == gettype('')){
-        if (($keyname = check_var($payload)) !== false){
-            $return .= $varenv[$keyname];
+    while (gettype($payload['content']) == gettype('')){
+        if (($keyname = check_var($payload['content'])) !== false){
+            $payload['content'] = $varenv[$keyname];
         }else{
             $return .= $payload['content'];
+            break;
         }
-    }elseif (gettype($payload['content']) == gettype([])){
+    }
+    
+    if (gettype($payload['content']) == gettype([])){
         foreach ($payload['content'] as $c){
             //echo("\n====================START===================\n");
             //var_dump($c);
@@ -391,7 +413,7 @@ function parse_def($payload, $attrenv, $varenv){
                     //echo($d);
                     if (($dkeyname = check_var($d)) !== false){
                         $content = $varenv[$dkeyname];
-                        if (($keyname = check_var($content)) !== false){
+                        while (($keyname = check_var($content)) !== false){
                             $content = $varenv[$keyname];
                         }
                         $content = parse_all($content, $content['attr'], $varenv);
@@ -447,61 +469,60 @@ function mergecontentsanicheck(&$def, &$varenv, &$payload){
     if ($varenv == null){
         $varenv = [];
     }
-    if ($def['default']['content'] == null){
+    if (!array_key_exists('content', $def['default'])){
         $def['default']['content'] = [];
     }
-    if ($def['default']['vars'] == null){
+    if (!array_key_exists('vars', $def['default'])){
         $def['default']['vars'] = [];
     }
-    if ($def['vars'] == null){
+    if (!array_key_exists('vars', $def)){
         $def['vars'] = [];
     }
-    if ($def['content'] == null){
+    if (!array_key_exists('content', $def)){
         $def['content'] = [];
     }
-    if ($payload['content'] == null){
+    if (!array_key_exists('content', $payload)){
         $payload['content'] = [];
     }
-    if ($payload['vars'] == null){
+    if (!array_key_exists('vars', $payload)){
         $payload['vars'] = [];
     }
 }
 
 function mergeattrsanicheck(&$def, &$attrenv, &$payload){
     
-    if ($def['attr'] == null){
+    if (!array_key_exists('attr', $def)){
         $def['attr'] = [];
     }
-    if ($def['default']['attr'] == null){
+    if (!array_key_exists('attr', $def['default'])){
         $def['default']['attr'] = [];
     }
-    if ($def['default']['attr']['style'] == null){
+    if (!array_key_exists('style', $def['default']['attr'])){
         $def['default']['attr']['style'] = [];
     }
-    if ($def['default']['attr']['class'] == null){
+    if (!array_key_exists('class', $def['default']['attr'])){
         $def['default']['attr']['class'] = [];
     }
     
     if ($attrenv == null){
         $attrenv = [];
     }
-    if ($attrenv['style'] == null){
+    if (!array_key_exists('style', $attrenv)){
         $attrenv['style'] = [];
     }
-    if ($attrenv['class'] == null){
+    if (!array_key_exists('class', $attrenv)){
         $attrenv['class'] = [];
     }
 
-    if ($payload['attr'] == null){
+    if (!array_key_exists('attr', $payload)){
         $payload['attr'] = [];
     }
-    if ($payload['attr']['style'] == null){
+    if (!array_key_exists('style', $payload['attr'])){
         $payload['attr']['style'] = [];
     }
-    if ($payload['attr']['class'] == null){
+    if (!array_key_exists('class', $payload['attr'])){
         $payload['attr']['class'] = [];
     }
-    
 }
 
 ?>

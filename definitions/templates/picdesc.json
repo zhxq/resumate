@@ -2,18 +2,13 @@
     "type": "template",
     "name": "picdesc",
     "close": true,
-    "default": {
-        "attr": {
-            
-        }
-    },
     "content": [
         {
             "name": "div",
             "attr": {
                 "style": {
-                    "width": "$width$",
-                    "height": "$height$"
+                    "width": "$_pdesc_template_width$",
+                    "height": "$_pdesc_template_height$"
                 }
             },
             "content": [
@@ -24,20 +19,20 @@
                             "name": "pic",
                             "attr": {
                                 "style": {
-                                    "width": "$picwidth$",
-                                    "height": "$picheight$",
+                                    "width": "$_pdesc_template_picwidth$",
+                                    "height": "$_pdesc_template_picheight$",
                                     "max-width": "100%"
                                 }
                             },
                             "vars": {
-                                "src": "$src$"
+                                "src": "$_pdesc_template_src$"
                             }
                         }
                     ]
                 },
                 {
                     "name": "h5",
-                    "content": ["$label$"]
+                    "content": ["$_pdesc_template_label$"]
                 }
             ]
         }

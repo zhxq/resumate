@@ -3,8 +3,52 @@
     "type": "lang",
     "vars":{
         "introductiontoresumatetitle": "Introduction to Resumate",
+        "themesdoc": "Themes",
         "codeforthispage": "Code for this page",
         "codeforthisblock": "Code for this block",
+        "outofboxtemplatesintrotitle": "Out-of-box Templates - Intro",
+        "outofboxtemplatesintroline1": "Resumate provides a list of templates with Resumate itself for users to get familiar faster with Resumate or just use Resumate as soon as Resumate is downloaded and deployed. Here is the list of these templates.",
+        "outofboxtemplateslisttitle": "Out-of-box Templates - List",
+        "cdivintrodescription": "An auto-centering <code>div</code>.",
+        "cdivintrocontent": "Things to be put in <code>div</code>.",
+        "cdivintromaxwidth": "Max width of the <code>div</code>.",
+        "cdivintrowidth": "Width of the <code>div</code>.",
+        "cdivintroheight": "Height of the <code>div</code>.",
+        "cdivintropadding": "Padding of the <code>div</code>.",
+        "cparaintrodescription": "An auto-centering<code>p</code>.",
+        "cparaintrocontent": "Things to be put in <code>p</code>.",
+        "cparaintromaxwidth": "Max width of the <code>p</code>.",
+        "cparaintrowidth": "Width of the <code>p</code>.",
+        "cparaintroheight": "Height of the <code>p</code>.",
+        "cparaintropadding": "Padding of the <code>p</code>",
+        "educationintrodescription": "An template for education experiences.",
+        "educationintrotitle": "Title of the section.",
+        "educationintrophd": "Personal Doctorate experience.",
+        "educationintromaster": "Personal Master experience.",
+        "educationintrobachelor": "Personal Bachelor experience.",
+        "educationintrocomment": "Some elaboration of your personal academic experience.",
+        "writingtemplatesintrotitle": "Writing Templates",
+        "writingtemplatesintroline1": "We have seen a lot of examples on writing different types of configuration files. Writing a template is very close to writing a page, and our goal now is to write templates for us and others to use. Template can be defined as \"a smallest collection of things for a well-defined feature\", which means we need to think thoroughly about what feature to be accomplished for this template before writing code. A very good principle is \"Unix Philosophy\": do one thing only and do it right. Consider using Blocks if you want to make a collection of features - that is what it was designed for.",
+        "writingtemplatesintroline2": "To better illustrate the way of writing a template, now we are going to create a new template from scratch. Suppose we are creating a template for showing personal working experiences, then we need to think about what to be included in this template. Usually working experiences include job position, company name, dates, and a not-too-long description elaborating the experience. Using this as the principle, now we can start creating this template. First we start again from necessary <code>name</code> and <code>type</code>. Since this is a template for working experiences, we call it \"workexp\", which means <code>name</code> should be a string \"workexp\", with filename as workexp.json at ./definitions/templates; obviously, <code>type</code> should be \"template\".",
+        "writingtemplatesintroline3": "The next step is the formatted contents. We choose to use a <code>&lt;h5&gt;</code> tag for job position, company name and dates, then comes a <code>&lt;p&gt;</code> tag to put the working experience description. Natually we would want the users pass those values to the template, so the template can show different information at the right places, and we can use Macros to accomplish this. To prevent possible Macro naming conflicts, we should add a prefix for every Macro in this template - usually derived from template name using acronyms. <span style=\"color: red;\">However, names for Macros appearing in Templates must start with an underscore, otherwise the parser may get into an infinite loop. For example: if template A refers template B, which then refers to template C, and C refers to Template A even with some other contents, if A is not using Macro names starting with underscore, then Resumate renderer may halt.</span> Now we have following Macros: <code>_wexp_template_title</code>, <code>_wexp_template_company</code>, <code>_wexp_template_fromtime</code>, <code>_wexp_template_totime</code>, and<code>_wexp_template_description</code>. We should also add <code>_wexp_template_align</code> to let users change text alignments easily.",
+        "writingtemplatesintroline4": "Now we have finished with the contents and formats, but we can still improve this by defining placeholders for those Macros, which can be used to notice users the usage of the Macro and prove the correctness of their configuration file by showing someting on screen.",
+        "writingtemplatesintroline5": "We can quote the template by using the following configuration - and let us also take a look (tip: if you want to limit the width of this template, we suggest you to wrap a <code>&lt;div&gt;</code> with preferred <code>max-width</code> outside the template when referring to the template): ",
+        "writingtemplatesintroincludetemplatequote": "{\"name\":\"workexp\",\"vars\":{\"_wexp_template_title\":\"Full Stack Software Engineer\",\"_wexp_template_company\":\"Flancrest Enterprises, Springfield\",\"_wexp_template_fromtime\":\"1989\",\"_wexp_template_totime\":\"2020\",\"_wexp_template_align\":\"left\",\"_wexp_template_description\":\"Flancrest Enterprises is a company based in Springfield, USA founded by Ned Flanders. As a Full Stack Software Engineer, my duty includes software development and maintainence, housecleaning, and bookkeeping.\"}}",
+        "writingtemplatesintroline5.5": "...and here is how it looks:",
+        "writingtemplatesintroincludetemplate": [
+            {
+                "name":"workexp",
+                "vars":{
+                    "_wexp_template_title":"Full Stack Software Engineer",
+                    "_wexp_template_company":"Flancrest Enterprises, Springfield",
+                    "_wexp_template_fromtime":"1989",
+                    "_wexp_template_totime":"2020",
+                    "_wexp_template_align":"left",
+                    "_wexp_template_description":"Flancrest Enterprises is a company based in Springfield, USA founded by Ned Flanders. As a Full Stack Software Engineer, my duty includes software development and maintainence, housecleaning, and bookkeeping."
+                }
+            }
+        ],
+        "writingtemplatesintroline6": "Done and done! Now we have finished our new template. If needed, we can also add <code>js</code> and <code>css</code> lists for external JS/CSS files, then use <code>&lt;script&gt;</code> tag provided by Resumate or just a simple string with HTML containing <code>&lt;script&gt;</code> and the needed JavaScript code. We welcome users to create their own templates and share them with other users submitting Pull Requests or so on GitHub - helping each other is crucial for creating an active community. Now you know how to write a new template for Resumate, why not try it out now?",
         "pagesintrotitle": "Writing Pages",
         "pagesintroline1": "We have introduced some basics about writing pages: Define <code>name</code> as the identifier of this configuration file, <code>type</code> for the configuration type, <code>content</code> as a list with referred contents (other blocks/templates/HTML tags/strings), and the final <code>vars</code> as a dict representing default values for Macros being applied to the whole file and all referred contents.",
         "pagesintroline2": "Let's start from a new page with better structure by using blocks. Suppose we want to build a new page called <code>page1</code> with three parts, namely <code>blocka</code>, <code>blockb</code> and <code>blockc</code>. This is a better way of writing page configuration files, as we separated different parts of the page into smaller blocks，sanitating the page with a rich content with better maintainability. Thus we can define a page called <code>page1</code>, with a title on top and blocks below: ",
@@ -33,16 +77,16 @@
         "introductiontoresumatetemplatestitle": "Templates",
         "introductiontoresumatetemplatesline1": "Template is the core of Resumate. It defines an abstract template which can be used over and over again (e.g.: a formatted list of someone's academic papers, or a place to automatically render a piece of code). Modularization is crucial to keep codes simple and readable, with ability to be reused and shared.",
         "introductiontoresumatetemplatesline2": "The following example is <code>titlewdiv</code> template used by this site again and again. It contains a <code>&lt;div&gt;</code> html element, with contents from top to bottom: an <code>&lt;h3&gt;</code> html element and a <code>cdiv</code> template.",
-        "introductiontoresumatetemplatesline3": "See those Macros with prefix <code>twd_template_</code>? Those are the Macros used in this template, which will be substituted with real contents when rendered. We recommend you to add some identical prefix for the Macros when writing a template. If you want to define default values for some Macros used in this template, you can consider add those in the <code>vars</code> dict located at the root of the template configuration with the format shown above.",
+        "introductiontoresumatetemplatesline3": "See those Macros with prefix <code>_twd_template_</code>? Those are the Macros used in this template, which will be substituted with real contents when rendered. We recommend you to add some identical prefix for the Macros when writing a template. If you want to define default values for some Macros used in this template, you can consider add those in the <code>vars</code> dict located at the root of the template configuration with the format shown above.",
         "introductiontoresumatetemplatesline4": "When the template is referred by other pages, blocks or templates (referers), this template (the referee) can be referred by putting something similar to the code above in the <code>content</code> list of the referer:",
         "introductiontoresumatetemplatesline5": [
-            "Here we passed two Macros and respective values to the template: <code>twd_template_title</code> and <code>twd_template_paragraph</code>. The value of the former Macro is <code>\"$codeforabove$\"</code>, which is the value of Macro <code>codeforabove</code>. The latter one is a list, with following contents sequentially: ",
+            "Here we passed two Macros and respective values to the template: <code>_twd_template_title</code> and <code>_twd_template_paragraph</code>. The value of the former Macro is <code>\"$codeforabove$\"</code>, which is the value of Macro <code>codeforabove</code>. The latter one is a list, with following contents sequentially: ",
             {
                 "name": "ul",
                 "content": [
                     "Value of Macro <code>outofboxtemplates</code>,",
                     "A string: <code>\" ...and let's see some code!\"</code>,",
-                    "A template <code>jsoncode</code>, with two Macros defined and passed to that template: <code>jc_template_json_id</code> (HTML id for the HTML element rendering that piece of JSON) and <code>jc_template_json</code> (the JSON string to be rendered),",
+                    "A template <code>jsoncode</code>, with two Macros defined and passed to that template: <code>_jc_template_json_id</code> (HTML id for the HTML element rendering that piece of JSON) and <code>_jc_template_json</code> (the JSON string to be rendered),",
                     "A string: <code>\"&lt;br&gt;&lt;br&gt;...and that is the end of that chapter.\"</code>"
                 ]
             }
@@ -57,9 +101,9 @@
         "sitemenutitle": "Resumate",
         "sitemenuhome": "Home",
         "sitemenubasics": "Basics",
-        "sitemenusitesdoc": "Pages",
-        "sitemenutemplatesdoc": "Templates",
-        "sitemenuhtmldoc": "HTML Elements",
+        "sitemenusitesdoc": "Page",
+        "sitemenutemplatesdoc": "Template",
+        "sitemenuhtmldoc": "HTML Tag",
         "whatisresumate": "What's Resumate?",
         "resumateintro": "Resumate is a tool allowing you to render HTML pages using JSON-based templates, which is convienient for occationally updated page with repeating elements (e.g.: a Ph.D. personal homepage with a list of publications, formatted with title, authors, description and link). Using Resumate, it is able to refer the template ten times and give title, authors, description and link easily, instead of copying and pasting HTML for ten times and insert those information in their repective places. Resumate also comes with multi-language and site theme support, so you don't need to worry about globalizing or beautifying your page.<br><br>You can also find the JSON source code of <i>this</i> page you are currently reading - on <a href=\"https://github.com/zhxq/resumate/blob/master/definitions/pages/home.json\">GitHub</a>.",
         "educationexp": "Example: Edu Experience",
@@ -68,7 +112,7 @@
         "educationphdend": ") (2014-2019)",
         "educationms": "Master of Science in Computer Science at Yale University (2012-2014)",
         "educationbachelor": "Bachelor of Science in Mathematics at Brown University (2008-2012)",
-        "educationdescription": "Above (including this paragraph) is rendered from <code>education</code> template of Resumate. I can provide 5 Macros: <code>edu_template_title</code>, <code>edu_template_phd</code>, <code>edu_template_master</code>, <code>edu_template_bachelor</code> and <code>edu_template_comment</code> to the template, and the renderer will figure out the right thing, since the format is pre-defined by the writer of the template already.",
+        "educationdescription": "Above (including this paragraph) is rendered from <code>education</code> template of Resumate. I can provide 5 Macros: <code>_edu_template_title</code>, <code>_edu_template_phd</code>, <code>_edu_template_master</code>, <code>_edu_template_bachelor</code> and <code>_edu_template_comment</code> to the template, and the renderer will figure out the right thing, since the format is pre-defined by the writer of the template already.",
         "codeforabove": "Code for the Example Above",
         "samplecodeexplain": "Explaination",
         "samplecodeexplainmain": [
@@ -81,11 +125,11 @@
                     }
                 },
                 "content": [
-                    ["<code>edu_template_title</code> is the title of this template, which referred Macro <code>$educationexp$</code>: Use $ symbol at the start/end of the Macro name to request the value of the Macro. This Macro is defined in the language file, and Resumate will show different value for this Macro in different languages. In this language, its value is:“", "$educationexp$", "”."],
-                    ["<code>edu_template_phd</code> is a place to show your Doctorate experience. Here, we provided a list containing <code>$educationphdstart$</code>, <code>link</code> template (a wrapper to <code>&lt;a&gt;</code> to generate HTML links), and the final <code>$educationphdend$</code>. The list will be resolved by Resumate into an HTML string, then passed into <code>edu_template_phd</code>. You can also substitute this list using a single line with HTML, since Resumate will pass HTML strings transparently."],
-                    ["<code>edu_template_ms</code> is a place to show your Masters experience. Similar to <code>edu_template_title</code>, the value of <code>$educationms$</code> will be passed to <code>edu_template_ms</code>。"],
-                    ["<code>edu_template_bachelor</code> is a place to show your Bachelors experience. Similar to <code>edu_template_title</code>, the value of <code>$educationbachelor$</code> will be passed to <code>edu_template_bachelor</code>。"],
-                    ["<code>edu_template_comment</code> is a place to elaborate a little bit more for your education experience. Similar to <code>edu_template_title</code>, the value of <code>$educationdescription$</code> will be passed to <code>edu_template_comment</code>。"]
+                    ["<code>_edu_template_title</code> is the title of this template, which referred Macro <code>$educationexp$</code>: Use $ symbol at the start/end of the Macro name to request the value of the Macro. This Macro is defined in the language file, and Resumate will show different value for this Macro in different languages. In this language, its value is:“", "$educationexp$", "”."],
+                    ["<code>_edu_template_phd</code> is a place to show your Doctorate experience. Here, we provided a list containing <code>$educationphdstart$</code>, <code>link</code> template (a wrapper to <code>&lt;a&gt;</code> to generate HTML links), and the final <code>$educationphdend$</code>. The list will be resolved by Resumate into an HTML string, then passed into <code>_edu_template_phd</code>. You can also substitute this list using a single line with HTML, since Resumate will pass HTML strings transparently."],
+                    ["<code>_edu_template_ms</code> is a place to show your Masters experience. Similar to <code>_edu_template_title</code>, the value of <code>$educationms$</code> will be passed to <code>_edu_template_ms</code>。"],
+                    ["<code>_edu_template_bachelor</code> is a place to show your Bachelors experience. Similar to <code>_edu_template_title</code>, the value of <code>$educationbachelor$</code> will be passed to <code>_edu_template_bachelor</code>。"],
+                    ["<code>_edu_template_comment</code> is a place to elaborate a little bit more for your education experience. Similar to <code>_edu_template_title</code>, the value of <code>$educationdescription$</code> will be passed to <code>_edu_template_comment</code>。"]
                 ]
             },
             "After Resumate resolves the template into HTML, it will be passed into its upper level (the Page or Block that requested it), and ultimately becomes a pure HTML page."

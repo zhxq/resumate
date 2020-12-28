@@ -5,8 +5,8 @@
         {
             "name": "titlewpara",
             "vars": {
-                "twp_template_title": "$htmlintroductionbasicstitle$",
-                "twp_template_paragraph": [
+                "_twp_template_title": "$htmlintroductionbasicstitle$",
+                "_twp_template_paragraph": [
                     "<span>", 
                     {
                         "name": "link", 
@@ -22,30 +22,30 @@
                     {
                         "name": "jsoncode",
                         "vars": {
-                            "jc_template_json_id": "pexample",
-                            "jc_template_json": "$pexample$"
+                            "_jc_template_json_id": "pexample",
+                            "_jc_template_json": "$pexample$"
                         }
                     },
                     "$htmlintroductionbasicsline3$",
                     {
                         "name": "jsoncode",
                         "vars": {
-                            "jc_template_json_id": "ulexample",
-                            "jc_template_json": "$ulexample$"
+                            "_jc_template_json_id": "ulexample",
+                            "_jc_template_json": "$ulexample$"
                         }
                     },
                     "$htmlintroductionbasicsline4$",
                     {
                         "name": "jsoncode",
                         "vars": {
-                            "jc_template_json_id": "ulquoteexample",
-                            "jc_template_json": "$ulquoteexample$"
+                            "_jc_template_json_id": "ulquoteexample",
+                            "_jc_template_json": "$ulquoteexample$"
                         }
                     },
                     "$htmlintroductionbasicsline5$"
                 ],
-                "twp_template_align": "left",
-                "twp_template_maxwidth": "100%"
+                "_twp_template_align": "left",
+                "_twp_template_maxwidth": "100%"
             }
         }
     ],

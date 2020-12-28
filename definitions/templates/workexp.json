@@ -1,0 +1,37 @@
+{
+    "name": "workexp",
+    "type": "template",
+    "content": [
+        {
+            "name": "h5",
+            "attr": {
+                "style": {
+                    "text-align": "$_wexp_template_align$"
+                }
+            },
+            "content": [
+                "$_wexp_template_title$",
+                " <i>",
+                "$_wexp_template_company$",
+                "</i> (", "$_wexp_template_fromtime$", " - ", "$_wexp_template_totime$", ")"
+            ]
+        },
+        {
+            "name": "p",
+            "attr": {
+                "style": {
+                    "text-align": "$_wexp_template_align$"
+                }
+            },
+            "content": ["$_wexp_template_description$"]
+        }
+    ],
+    "vars": {
+        "_wexp_template_title": "Job Title",
+        "_wexp_template_company": "Company Name",
+        "_wexp_template_fromtime": "1990",
+        "_wexp_template_totime": "2000",
+        "_wexp_template_align": "left",
+        "_wexp_template_description": "Here is a description of your working experience. Be wild and start writing!"
+    }
+}

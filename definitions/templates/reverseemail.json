@@ -4,7 +4,7 @@
     "content": [
         {
             "name": "span",
-            "content": ["$re_template_email$"],
+            "content": ["$_re_template_email$"],
             "attr":{
                 "style": {
                     "unicode-bidi": "bidi-override",

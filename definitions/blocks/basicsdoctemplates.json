@@ -5,8 +5,8 @@
         {
             "name": "titlewpara",
             "vars": {
-                "twp_template_title": "$introductiontoresumatetemplatestitle$",
-                "twp_template_paragraph": [
+                "_twp_template_title": "$introductiontoresumatetemplatestitle$",
+                "_twp_template_paragraph": [
                     "<span>", 
                     {
                         "name": "link", 
@@ -23,8 +23,8 @@
                     {
                         "name": "jsoncode",
                         "vars": {
-                            "jc_template_json_id": "basicdocjson2",
-                            "jc_template_json": "$basicdocjson2json$"
+                            "_jc_template_json_id": "basicdocjson2",
+                            "_jc_template_json": "$basicdocjson2json$"
                         }
                     },
                     "$introductiontoresumatetemplatesline3$",
@@ -33,19 +33,19 @@
                     {
                         "name": "jsoncode",
                         "vars": {
-                            "jc_template_json_id": "quotingtitlewdiv",
-                            "jc_template_json": "$quotingtitlewdiv$"
+                            "_jc_template_json_id": "quotingtitlewdiv",
+                            "_jc_template_json": "$quotingtitlewdiv$"
                         }
                     },
                     "$introductiontoresumatetemplatesline5$"
                 ],
-                "twp_template_align": "left",
-                "twp_template_maxwidth": "100%"
+                "_twp_template_align": "left",
+                "_twp_template_maxwidth": "100%"
             }
         }
     ],
     "vars": {
-        "basicdocjson2json": "{\"name\":\"titlewdiv\",\"type\":\"template\",\"content\":[{\"name\":\"div\",\"attr\":{\"style\":{\"text-align\":\"$twd_template_align$\"}},\"content\":[{\"name\":\"h3\",\"content\":[\"$twd_template_title$\"]},{\"name\":\"cdiv\",\"vars\":{\"cdiv_template_content\":[\"$twd_template_paragraph$\"],\"cdiv_template_maxwidth\":\"$twd_template_maxwidth$\"}}]}],\"vars\":{\"twd_template_maxwidth\":\"800px\",\"twd_template_align\":\"center\"}}",
-        "quotingtitlewdiv": "{\"name\":\"titlewdiv\",\"vars\":{\"twd_template_title\":\"$codeforabove$\",\"twd_template_paragraph\":[\"$outofboxtemplates$\", \" ...and let's see some code!\", {\"name\":\"jsoncode\",\"vars\":{\"jc_template_json_id\":\"codeforabovecodejsvar\",\"jc_template_json\":\"$codeforabovecode$\"}}, \"&lt;br&gt;&lt;br&gt;...and that is the end of that chapter.\"]}}"
+        "basicdocjson2json": "{\"name\":\"titlewdiv\",\"type\":\"template\",\"content\":[{\"name\":\"div\",\"attr\":{\"style\":{\"text-align\":\"$_twd_template_align$\"}},\"content\":[{\"name\":\"h3\",\"content\":[\"$_twd_template_title$\"]},{\"name\":\"cdiv\",\"vars\":{\"_cdiv_template_content\":[\"$_twd_template_paragraph$\"],\"_cdiv_template_maxwidth\":\"$_twd_template_maxwidth$\"}}]}],\"vars\":{\"_twd_template_maxwidth\":\"800px\",\"_twd_template_align\":\"center\"}}",
+        "quotingtitlewdiv": "{\"name\":\"titlewdiv\",\"vars\":{\"_twd_template_title\":\"$codeforabove$\",\"_twd_template_paragraph\":[\"$outofboxtemplates$\", \" ...and let's see some code!\", {\"name\":\"jsoncode\",\"vars\":{\"_jc_template_json_id\":\"codeforabovecodejsvar\",\"_jc_template_json\":\"$codeforabovecode$\"}}, \"&lt;br&gt;&lt;br&gt;...and that is the end of that chapter.\"]}}"
     }
 }

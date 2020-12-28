@@ -74,7 +74,8 @@ function getLangFile($lang){
 }
 
 function check_var($input){
-    if ($input[0] == '$' && $input[-1] == '$'){
+    if (gettype($input) != gettype('')) return false;
+    if (strlen($input) > 0 && $input[0] == '$' && $input[-1] == '$'){
         return substr($input, 1, -1);
     }
     return false;

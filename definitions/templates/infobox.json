@@ -13,11 +13,11 @@
             "name": "div",
             "attr": {
                 "style": {
-                    "width": "$ib_template_width$",
-                    "height": "$ib_template_height$"
+                    "width": "$_ib_template_width$",
+                    "height": "$_ib_template_height$"
                 },
-                "attrtest": "$ib_template_attrtest$",
-                "class": ["ib_template_infobox"]
+                "attrtest": "$_ib_template_attrtest$",
+                "class": ["_ib_template_infobox"]
             },
             "content": [
                 {
@@ -27,32 +27,32 @@
                             "name": "pic",
                             "attr": {
                                 "style": {
-                                    "width": "$ib_template_picwidth$",
-                                    "height": "$ib_template_picheight$",
+                                    "width": "$_ib_template_picwidth$",
+                                    "height": "$_ib_template_picheight$",
                                     "border-radius": "50%"
                                 },
-                                "attrtest": "$ib_template_attrtest$",
+                                "attrtest": "$_ib_template_attrtest$",
                                 "class": ["infobox"],
-                                "src": "$ib_template_src$"
+                                "src": "$_ib_template_src$"
                             }
                         }
                     ]
                 },
                 {
                     "name": "h1",
-                    "content": ["$ib_template_title$"]
+                    "content": ["$_ib_template_title$"]
                 },
                 {
                     "name": "h4",
-                    "content": ["$ib_template_line1$"]
+                    "content": ["$_ib_template_line1$"]
                 },
                 {
                     "name": "h4",
-                    "content": ["$ib_template_line2$"]
+                    "content": ["$_ib_template_line2$"]
                 },
                 {
                     "name": "h4",
-                    "content": ["$ib_template_line3$"]
+                    "content": ["$_ib_template_line3$"]
                 },
                 {
                     "name": "hr",
@@ -62,11 +62,11 @@
         }
     ],
     "vars": {
-        "ib_template_title": "PLACEHOLDER",
-        "ib_template_line1": "This is the line for line 1.",
-        "ib_template_line2": "This is the line for line 2.",
-        "ib_template_line3": "This is the line for line 3.",
-        "ib_template_src": "/img/test.png",
-        "ib_template_attrtest": "infobox_def_default"
+        "_ib_template_title": "PLACEHOLDER",
+        "_ib_template_line1": "This is the line for line 1.",
+        "_ib_template_line2": "This is the line for line 2.",
+        "_ib_template_line3": "This is the line for line 3.",
+        "_ib_template_src": "/img/test.png",
+        "_ib_template_attrtest": "infobox_def_default"
     }
 }

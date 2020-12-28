@@ -5,10 +5,10 @@
         {
             "name": "infobox",
             "vars":{
-                "ib_template_title": "$sitemenutitle$",
-                "ib_template_line1": "$introline1$",
-                "ib_template_line2": "$introline2$",
-                "ib_template_line3": [
+                "_ib_template_title": "$sitemenutitle$",
+                "_ib_template_line1": "$introline1$",
+                "_ib_template_line2": "$introline2$",
+                "_ib_template_line3": [
                     {
                         "name": "link",
                         "vars": {
@@ -26,23 +26,23 @@
                         }
                     }
                 ],
-                "ib_template_src": "/imgs/logo.svg",
-                "ib_template_picwidth": "225px",
-                "ib_template_picheight": "225px"
+                "_ib_template_src": "/imgs/logo.svg",
+                "_ib_template_picwidth": "225px",
+                "_ib_template_picheight": "225px"
             }
         },
         {
             "name": "titlewpara",
             "vars": {
-                "twp_template_title": "$whatisresumate$",
-                "twp_template_paragraph": "$resumateintro$"
+                "_twp_template_title": "$whatisresumate$",
+                "_twp_template_paragraph": "$resumateintro$"
             }
         },
         {
             "name": "education",
             "vars": {
-                "edu_template_title": "$educationexp$",
-                "edu_template_phd": [
+                "_edu_template_title": "$educationexp$",
+                "_edu_template_phd": [
                     "$educationphdstart$", 
                     {
                         "name": "a",
@@ -53,21 +53,21 @@
                     }, 
                     "$educationphdend$"
                 ],
-                "edu_template_master": "$educationms$",
-                "edu_template_bachelor": "$educationbachelor$",
-                "edu_template_comment": "$educationdescription$"
+                "_edu_template_master": "$educationms$",
+                "_edu_template_bachelor": "$educationbachelor$",
+                "_edu_template_comment": "$educationdescription$"
             }
         },
         {
             "name": "titlewdiv",
             "vars": {
-                "twd_template_title": "$codeforabove$",
-                "twd_template_paragraph": [
+                "_twd_template_title": "$codeforabove$",
+                "_twd_template_paragraph": [
                     {
                         "name": "jsoncode",
                         "vars": {
-                            "jc_template_json_id": "codeforabovecodejsvar",
-                            "jc_template_json": "$codeforabovecode$"
+                            "_jc_template_json_id": "codeforabovecodejsvar",
+                            "_jc_template_json": "$codeforabovecode$"
                         }
                     }
                 ]
@@ -76,13 +76,13 @@
         {
             "name": "titlewdiv",
             "vars": {
-                "twd_template_title": "$samplecodeexplain$",
-                "twd_template_paragraph": "$samplecodeexplainmain$"
+                "_twd_template_title": "$samplecodeexplain$",
+                "_twd_template_paragraph": "$samplecodeexplainmain$"
             }
         }
     ],
     "vars": {
         "codeforabovecodejsvar": "codeforabovecodeid",
-        "codeforabovecode": "{\"name\":\"education\",\"vars\":{\"edu_template_title\":\"$educationexp$\",\"edu_template_phd\":[\"$educationphdstart$\",{\"name\":\"link\",\"vars\":{\"link\":\"https://resumate.io/\",\"description\":\"$educationexampleprof$\"}},\"$educationphdend$\"],\"edu_template_master\":\"$educationms$\",\"edu_template_bachelor\":\"$educationbachelor$\",\"edu_template_comment\":\"$educationdescription$\"}}"
+        "codeforabovecode": "{\"name\":\"education\",\"vars\":{\"_edu_template_title\":\"$educationexp$\",\"_edu_template_phd\":[\"$educationphdstart$\",{\"name\":\"link\",\"vars\":{\"link\":\"https://resumate.io/\",\"description\":\"$educationexampleprof$\"}},\"$educationphdend$\"],\"_edu_template_master\":\"$educationms$\",\"_edu_template_bachelor\":\"$educationbachelor$\",\"_edu_template_comment\":\"$educationdescription$\"}}"
     }
 }

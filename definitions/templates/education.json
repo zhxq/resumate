@@ -4,15 +4,15 @@
     "content": [
         {
             "name": "h3",
-            "content": ["$edu_template_title$"]
+            "content": ["$_edu_template_title$"]
         },
         {
             "name": "h5",
-            "content": ["$edu_template_phd$"]
+            "content": ["$_edu_template_phd$"]
         },
         {
             "name": "h5",
-            "content": ["$edu_template_master$"]
+            "content": ["$_edu_template_master$"]
         },
         {
             "name": "h5",
@@ -21,21 +21,21 @@
                     "margin-bottom": "30px"
                 }
             },
-            "content": ["$edu_template_bachelor$"]
+            "content": ["$_edu_template_bachelor$"]
         },
         {
             "name": "cpara",
             "vars": {
-                "content": ["$edu_template_comment$"],
-                "maxwidth": "800px"
+                "_cpara_template_content": ["$_edu_template_comment$"],
+                "_cpara_template_maxwidth": "800px"
             }
         }
     ],
     "vars": {
-        "edu_template_title": "Education",
-        "edu_template_phd": "Insert your PhD experience, if any",
-        "edu_template_master": "Insert your Master experience, if any",
-        "edu_template_bachelor": "Insert your Bachelor experience, if any",
-        "edu_template_comment": "Explain and elaborate something more about your education experience here :)"
+        "_edu_template_title": "Education",
+        "_edu_template_phd": "Insert your PhD experience, if any",
+        "_edu_template_master": "Insert your Master experience, if any",
+        "_edu_template_bachelor": "Insert your Bachelor experience, if any",
+        "_edu_template_comment": "Explain and elaborate something more about your education experience here :)"
     }
 }

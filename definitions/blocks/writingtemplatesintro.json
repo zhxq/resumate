@@ -1,0 +1,69 @@
+{
+    "name": "writingtemplatesintro",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "_twp_template_title": "$writingtemplatesintrotitle$",
+                "_twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/writingtemplatesintro.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$writingtemplatesintroline1$",
+                    "<br><br>",
+                    "$writingtemplatesintroline2$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "_jc_template_json_id": "basicjson",
+                            "_jc_template_json": "$basicjson$"
+                        }
+                    },
+                    "$writingtemplatesintroline3$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "_jc_template_json_id": "contentjson",
+                            "_jc_template_json": "$contentjson$"
+                        }
+                    },
+                    "$writingtemplatesintroline4$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "_jc_template_json_id": "varsjson",
+                            "_jc_template_json": "$varsjson$"
+                        }
+                    },
+                    "$writingtemplatesintroline5$",
+                    {
+                        "name": "jsoncode",
+                        "vars": {
+                            "_jc_template_json_id": "writingtemplatesintroincludetemplatequote",
+                            "_jc_template_json": "$writingtemplatesintroincludetemplatequote$"
+                        }
+                    },
+                    "$writingtemplatesintroline5.5$",
+                    "<br><br>",
+                    "$writingtemplatesintroincludetemplate$",
+                    "<br><br>",
+                    "$writingtemplatesintroline6$"
+                ],
+                "_twp_template_align": "left",
+                "_twp_template_maxwidth": "100%"
+            }
+        }
+    ],
+    "vars": {
+        "basicjson": "{\"name\":\"workexp\",\"type\":\"template\",\"content\":[]}",
+        "contentjson": "{\"name\":\"workexp\",\"type\":\"template\",\"content\":[{\"name\":\"h5\",\"attr\":{\"style\":{\"text-align\":\"$_wexp_template_align$\"}},\"content\":[\"$_wexp_template_title$\",\" &lt;i&gt;\",\"$_wexp_template_company$\",\"&lt;/i&gt; (\",\"$_wexp_template_fromtime$\",\" - \",\"$_wexp_template_totime$\",\")\"]},{\"name\":\"p\",\"attr\":{\"style\":{\"text-align\":\"$_wexp_template_align$\"}},\"content\":[\"$_wexp_template_description$\"]}]}",
+        "varsjson": "{\"name\":\"workexp\",\"type\":\"template\",\"content\":[{\"name\":\"h5\",\"attr\":{\"style\":{\"text-align\":\"$_wexp_template_align$\"}},\"content\":[\"$_wexp_template_title$\",\" &lt;i&gt;\",\"$_wexp_template_company$\",\"&lt;/i&gt; (\",\"$_wexp_template_fromtime$\",\" - \",\"$_wexp_template_totime$\",\")\"]},{\"name\":\"p\",\"attr\":{\"style\":{\"text-align\":\"$_wexp_template_align$\"}},\"content\":[\"$_wexp_template_description$\"]}],\"vars\":{\"_wexp_template_title\":\"Job Title\",\"_wexp_template_company\":\"Company Name\",\"_wexp_template_fromtime\":\"1990\",\"_wexp_template_totime\":\"2000\",\"_wexp_template_align\":\"left\",\"_wexp_template_description\":\"Here is a description of your working experience. Be wild and start writing!\"}}"
+    }
+}

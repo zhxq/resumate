@@ -1,0 +1,26 @@
+{
+    "name": "outofboxtemplatesintro",
+    "type": "block",
+    "content": [
+        {
+            "name": "titlewpara",
+            "vars": {
+                "_twp_template_title": "$outofboxtemplatesintrotitle$",
+                "_twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/outofboxtemplatesintro.json",
+                            "description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$outofboxtemplatesintroline1$"
+                ],
+                "_twp_template_align": "left",
+                "_twp_template_maxwidth": "100%"
+            }
+        }
+    ]
+}

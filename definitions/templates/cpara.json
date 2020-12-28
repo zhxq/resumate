@@ -1,27 +1,22 @@
 {
     "type": "template",
     "name": "cpara",
-    "default": {
-        "attr": {
-            
-        }
-    },
     "content": [
         {
             "name": "p",
             "attr": {
                 "style": {
-                    "width": "$width$",
-                    "height": "$height$",
-                    "padding": "$padding$",
+                    "width": "$_cpara_template_width$",
+                    "height": "$_cpara_template_height$",
+                    "padding": "$_cpara_template_padding$",
                     "margin": "0 auto",
-                    "max-width": "$cpara_template_maxwidth$"
+                    "max-width": "$_cpara_template_maxwidth$"
                 }
             },
-            "content": ["$cpara_template_content$"]
+            "content": ["$_cpara_template_content$"]
         }
     ],
     "vars": {
-        "cpara_template_maxwidth": "700px"
+        "_cpara_template_maxwidth": "700px"
     }
 }
