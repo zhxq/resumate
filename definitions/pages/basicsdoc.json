@@ -12,8 +12,8 @@
                 {
                     "name": "link", 
                     "vars": {
-                        "link": "https://github.com/zhxq/resumate/blob/master/definitions/pages/basicsdoc.json",
-                        "description": "$codeforthispage$"
+                        "_lnk_template_link": "https://github.com/zhxq/resumate/blob/master/definitions/pages/basicsdoc.json",
+                        "_lnk_template_description": "$codeforthispage$"
                     }
                 }
             ]

@@ -17,6 +17,10 @@
         }
     ],
     "vars": {
-        "_cdiv_template_maxwidth": "700px"
+        "_cdiv_template_maxwidth": "700px",
+        "_cdiv_template_width": "",
+        "_cdiv_template_height": "",
+        "_cdiv_template_padding": "",
+        "_cdiv_template_content": ""
     }
 }

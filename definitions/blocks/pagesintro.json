@@ -11,8 +11,8 @@
                     {
                         "name": "link", 
                         "vars": {
-                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/pagesintro.json",
-                            "description": "$codeforthisblock$"
+                            "_lnk_template_link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/pagesintro.json",
+                            "_lnk_template_description": "$codeforthisblock$"
                         }
                     },
                     "</span><br><br>",

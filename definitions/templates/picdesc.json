@@ -36,5 +36,13 @@
                 }
             ]
         }
-    ]
+    ],
+    "vars": {
+        "_pdesc_template_width": "",
+        "_pdesc_template_height": "",
+        "_pdesc_template_picwidth": "",
+        "_pdesc_template_picheight": "",
+        "_pdesc_template_src": "/img/test.png",
+        "_pdesc_template_label": "This is a label."
+    }
 }

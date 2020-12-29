@@ -12,8 +12,8 @@
                     {
                         "name": "link",
                         "vars": {
-                            "link": "https://resumate.io/",
-                            "description": "https://resumate.io/"
+                            "_lnk_template_link": "https://resumate.io/",
+                            "_lnk_template_description": "https://resumate.io/"
                         }
                     },
                     " - "
@@ -21,8 +21,8 @@
                     {
                         "name": "link",
                         "vars": {
-                            "link": "https://github.com/zhxq/resumate",
-                            "description": "GitHub"
+                            "_lnk_template_link": "https://github.com/zhxq/resumate",
+                            "_lnk_template_description": "GitHub"
                         }
                     }
                 ],

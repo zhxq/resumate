@@ -14,5 +14,13 @@
             "name": "ul",
             "content": "$_ti_template_macros$"
         }
-    ]
+    ],
+    "vars": {
+        "_ti_template_title": "templatename",
+        "_ti_template_intro": "One liner introduction.",
+        "_ti_template_macros": [
+            ["<code>_template_macro_1</code>: ", "Something to show."],
+            ["<code>_template_macro_2</code>: ", "Something else to show."]
+        ]
+    }
 }

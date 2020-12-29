@@ -25,6 +25,8 @@
         }
     ],
     "vars": {
+        "_twp_template_title": "Title",
+        "_twp_template_paragraph": "Some content in Paragraph",
         "_twp_template_maxwidth": "800px",
         "_twp_template_align": "center"
     }

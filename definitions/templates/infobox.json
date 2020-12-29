@@ -3,11 +3,6 @@
     "name": "infobox",
     "css": ["./css/infobox.css"],
     "js": ["./js/infobox.js"],
-    "default": {
-        "attr": {
-            
-        }
-    },
     "content": [
         {
             "name": "div",
@@ -15,9 +10,7 @@
                 "style": {
                     "width": "$_ib_template_width$",
                     "height": "$_ib_template_height$"
-                },
-                "attrtest": "$_ib_template_attrtest$",
-                "class": ["_ib_template_infobox"]
+                }
             },
             "content": [
                 {
@@ -31,8 +24,6 @@
                                     "height": "$_ib_template_picheight$",
                                     "border-radius": "50%"
                                 },
-                                "attrtest": "$_ib_template_attrtest$",
-                                "class": ["infobox"],
                                 "src": "$_ib_template_src$"
                             }
                         }
@@ -63,10 +54,11 @@
     ],
     "vars": {
         "_ib_template_title": "PLACEHOLDER",
+        "_ib_template_picwidth": "225px",
+        "_ib_template_picheight": "225px",
         "_ib_template_line1": "This is the line for line 1.",
         "_ib_template_line2": "This is the line for line 2.",
         "_ib_template_line3": "This is the line for line 3.",
-        "_ib_template_src": "/img/test.png",
-        "_ib_template_attrtest": "infobox_def_default"
+        "_ib_template_src": "/img/test.png"
     }
 }

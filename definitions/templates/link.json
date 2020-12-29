@@ -5,9 +5,13 @@
         {
             "name": "a",
             "attr":{
-                "href": "$link$"
+                "href": "$_lnk_template_link$"
             },
-            "content": ["$description$"]
+            "content": ["$_lnk_template_description$"]
         }
-    ]
+    ],
+    "vars": {
+        "_lnk_template_link": "https://example.com/",
+        "_lnk_template_description": "An example link."
+    }
 }

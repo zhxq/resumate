@@ -11,8 +11,8 @@
                     {
                         "name": "link", 
                         "vars": {
-                            "link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/outofboxtemplateslist.json",
-                            "description": "$codeforthisblock$"
+                            "_lnk_template_link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/outofboxtemplateslist.json",
+                            "_lnk_template_description": "$codeforthisblock$"
                         }
                     },
                     "</span><br><br>",
@@ -21,7 +21,16 @@
                         "content": [
                             "$cdivintro$",
                             "$cparaintro$",
-                            "$educationintro$"
+                            "$educationintro$",
+                            "$infoboxintro$",
+                            "$jsoncodeintro$",
+                            "$linkintro$",
+                            "$picdescintro$",
+                            "$reverseemailintro$",
+                            "$templateintrointro$",
+                            "$titlewdivintro$",
+                            "$titlewparaintro$",
+                            "$workexpintro$"
                         ]
                     }
                 ],
@@ -75,6 +84,140 @@
                         ["<code>_edu_template_master</code>: ", "$educationintromaster$"],
                         ["<code>_edu_template_bachelor</code>: ", "$educationintrobachelor$"],
                         ["<code>_edu_template_comment</code>: ", "$educationintrocomment$"]
+                    ]
+                }
+            }
+        ],
+        "infoboxintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "infobox",
+                    "_ti_template_intro": "$infoboxintrodescription$",
+                    "_ti_template_macros": [
+                        ["<code>_ib_template_src</code>: ", "$infoboxintrosrc$"],
+                        ["<code>_ib_template_picwidth</code>: ", "$infoboxintropicwidth$"],
+                        ["<code>_ib_template_picheight</code>: ", "$infoboxintropicheight$"],
+                        ["<code>_ib_template_title</code>: ", "$infoboxintropictitle$"],
+                        ["<code>_ib_template_line1</code>: ", "$infoboxintropicline1$"],
+                        ["<code>_ib_template_line2</code>: ", "$infoboxintropicline2$"],
+                        ["<code>_ib_template_line3</code>: ", "$infoboxintropicline3$"]
+                    ]
+                }
+            }
+        ],
+        "jsoncodeintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "jsoncode",
+                    "_ti_template_intro": "$jsoncodeintrodescription$",
+                    "_ti_template_macros": [
+                        ["<code>_jc_template_json_id</code>: ", "$jsoncodeintroid$"],
+                        ["<code>_jc_template_json</code>: ", "$jsoncodeintropicjson$"]
+                    ]
+                }
+            }
+        ],
+        "linkintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "link",
+                    "_ti_template_intro": "$linkintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_lnk_template_link</code>: ", "$linkintrolink$"],
+                        ["<code>_lnk_template_description</code>: ", "$linkintrodescription$"]
+                    ]
+                }
+            }
+        ],
+        "picdescintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "picdesc",
+                    "_ti_template_intro": "$picdescintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_pdesc_template_src</code>: ", "$pdescintrosrc$"],
+                        ["<code>_pdesc_template_label</code>: ", "$pdescintrolabel$"],
+                        ["<code>_pdesc_template_width</code>: ", "$pdescintrowidth$"],
+                        ["<code>_pdesc_template_height</code>: ", "$pdescintroheight$"],
+                        ["<code>_pdesc_template_picwidth</code>: ", "$pdescintropicwidth$"],
+                        ["<code>_pdesc_template_picheight</code>: ", "$pdescintropicheight$"]
+                    ]
+                }
+            }
+        ],
+        "reverseemailintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "reverseemail",
+                    "_ti_template_intro": "$reverseemailintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_re_template_email</code>: ", "$reverseemailintroreversedemail$"]
+                    ]
+                }
+            }
+        ],
+        "templateintrointro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "templateintro",
+                    "_ti_template_intro": "$templateintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_ti_template_title</code>: ", "$templateintroductiontitle$"],
+                        ["<code>_ti_template_intro</code>: ", "$templateintroductionintro$"],
+                        ["<code>_ti_template_macros</code>: ", "$templateintroductionmacros$"]
+                    ]
+                }
+            }
+        ],
+        "titlewdivintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "titlewdiv",
+                    "_ti_template_intro": "$titlewdivintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_twd_template_title</code>: ", "$titlewdivintrotitle$"],
+                        ["<code>_twd_template_paragraph</code>: ", "$titlewdivintroparagraph$"],
+                        ["<code>_twd_template_maxwidth</code>: ", "$titlewdivintromaxwidth$"],
+                        ["<code>_twd_template_align</code>: ", "$titlewdivintroalign$"]
+                    ]
+                }
+            }
+        ],
+        "titlewparaintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "titlewpara",
+                    "_ti_template_intro": "$titlewparaintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_twp_template_title</code>: ", "$titlewpintrotitle$"],
+                        ["<code>_twp_template_paragraph</code>: ", "$titlewpintroparagraph$"],
+                        ["<code>_twp_template_maxwidth</code>: ", "$titlewpintromaxwidth$"],
+                        ["<code>_twp_template_align</code>: ", "$titlewpintroalign$"]
+                    ]
+                }
+            }
+        ],
+        "workexpintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "workexp",
+                    "_ti_template_intro": "$workexpintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_wexp_template_title</code>: ", "$wexpintrotitle$"],
+                        ["<code>_wexp_template_company</code>: ", "$wexpintrocompany$"],
+                        ["<code>_wexp_template_fromtime</code>: ", "$wexpintrofromtime$"],
+                        ["<code>_wexp_template_totime</code>: ", "$wexpintrototime$"],
+                        ["<code>_wexp_template_align</code>: ", "$wexpintroalign$"],
+                        ["<code>_wexp_template_description</code>: ", "$wexpintrodescription$"]
                     ]
                 }
             }

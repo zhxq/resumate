@@ -12,5 +12,8 @@
                 }
             }
         }
-    ]
+    ],
+    "vars": {
+        "_re_template_email": "moc.elpmaxe@elpmaxe"
+    }
 }

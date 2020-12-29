@@ -28,5 +28,9 @@
                 "document.querySelectorAll('#", "$_jc_template_json_id$", "').forEach((block) => {hljs.highlightBlock(block);});"
             ]
         }
-    ]
+    ],
+    "vars": {
+        "_jc_template_json_id": "",
+        "_jc_template_json": "{}"
+    }
 }
