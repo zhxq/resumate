@@ -1,11 +1,3 @@
-function checkType(type){
-	if (type != "edit" && type != "delete"){
-		alert('类型非法！');
-		return false;
-	}
-	return true;
-}
-
 function setHash(theHash){
 	//$('#lastHash').val(window.location.hash.replace('#', ''));
 	
@@ -33,11 +25,11 @@ function clickCollapseButton(){
 function getBackHash(){
 	var lastHash = '#' + document.getElementById('lastHash').value;
 	if (lastHash == "#" || lastHash == "##"){
-		setHash('index');
+		setHash(settings['index']);
 		return;
 	}
 	if (lastHash == window.location.hash){
-		setHash('index');
+		setHash(settings['index']);
 	}else{
 		history.back(-1);
 	}

@@ -25,7 +25,6 @@ window.onload = function(){
 			alert(errorThrown); 
 		} 
 	});
-    var hash;
 }
 
 window.onhashchange = function(){

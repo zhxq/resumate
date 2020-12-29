@@ -124,7 +124,7 @@
         "introductiontoresumateoutofboxline2": "在编写好自己的配置文件之后，您需要修改一下<code>settings.json</code>来修改一下站点设置。在其中您可以修改站点标题、SEO内容、菜单选项（引用的页面文件），和支持的语言列表。",
         "introductiontoresumateoutofboxline3": "菜单设置是由<code>menu</code>这个dict来控制的。其中每个键名都是会引用的文件名（文件名要以.json结尾，比如“home”这个键名就会引用home.json）。<code>readable</code>选项控制了其在菜单上显示的文字、<code>right</code>布尔值选项显示其是否显示在菜单右侧。<code>dropdown</code>作为可选的key，内容为一个dict，其中每个键名仍为引用的文件名，<code>readable</code>仍然控制了其在菜单上的显示文字。",
         "introductiontoresumateoutofboxline4": "在配置文件中，几乎所有的值都支持多语。比如您在两门语言中都定义了名为<code>somestring</code>的字符串，您只需要在配置文件中引用<code>\"$somestring$\"</code>即可自动根据语言来显示正确的字符串。在写其它配置文件的时候，想引用某个多语言字符串也是类似的用法。",
-        "introductiontoresumateoutofboxline5": "如果仍然搞不清楚配置文件应该如何编写，欢迎您读取本页和本页各块的代码，也欢迎您来查看原作者个人网站的定义文件代码。",
+        "introductiontoresumateoutofboxline5": "如果仍然搞不清楚配置文件应该如何编写，欢迎您读取本页和本页各块的代码，也欢迎您来查看原作者个人网站的<a href=\"https://github.com/zhxq/zhxqme/blob/master/definitions/pages/about.json\">定义文件代码</a>。",
         "introductiontoresumatebasicstitle": "Resumate入门",
         "introductiontoresumatebasicsline1": "Resumate是一个用JSON编写个人主页的利器。您无需会任何代码，只需要按照一定规则引入一些已有的模板就可以开始使用了——当然，如果您对扩展Resumate有兴趣，那么也完全可以定义更多模板。",
         "introductiontoresumatebasicsline2": "Resumate分四种<i>可被渲染的</i>配置文件，从大到小分别为：page（页面）, block（块）, template（模板）和html. 它们的语法都很类似（尤其是前三种）。对于每一个JSON配置文件，其都要定义文件名、类型，以及可选的内容和宏（类似于变量）定义部分。不同种类的配置文件应该放置于不同的位置：页面文件应该放置于<code>./defintions/pages</code>、块文件应该放置于<code>./defintions/blocks</code>、模板文件应该放置于<code>./defintions/templates</code>、以及html定义文件应该放置于<code>./defintions/html</code>。一个基本的Resumate页面文件如下所示，其在<code>content</code>当中定义了对其它block/template/HTML标签的<i><b><span style=\"color: red;\">引用</span></b></i>：",
