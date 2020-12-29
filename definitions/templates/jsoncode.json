@@ -2,7 +2,7 @@
     "name": "jsoncode",
     "type": "template",
     "css": ["https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css"],
-    "js": ["https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js", "js/1.js", "js/2.js", "js/3.js", "js/4.js"],
+    "js": ["https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"],
     "content": [
         {
             "name": "pre",
