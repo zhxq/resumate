@@ -3,8 +3,34 @@
     "type": "block",
     "content": [
         {
-            "name": "h3",
-            "content": ["$constructing$", "..."]
+            "name": "titlewpara",
+            "vars": {
+                "_twp_template_title": "$sitethemesintrotitle$",
+                "_twp_template_paragraph": [
+                    "<span>", 
+                    {
+                        "name": "link", 
+                        "vars": {
+                            "_lnk_template_link": "https://github.com/zhxq/resumate/blob/master/definitions/blocks/themesintro.json",
+                            "_lnk_template_description": "$codeforthisblock$"
+                        }
+                    },
+                    "</span><br><br>",
+                    "$sitethemesintroline1$",
+                    "<br><br>",
+                    "$sitethemesintroline2$",
+                    "<br><br>",
+                    "$sitethemesintroline3$",
+                    "<br><br>",
+                    "$sitethemesintroline4$",
+                    "<br><br>",
+                    "$sitethemesintroline5$",
+                    "<br><br>",
+                    "$sitethemesintroline6$"
+                ],
+                "_twp_template_align": "left",
+                "_twp_template_maxwidth": "100%"
+            }
         }
     ]
 }

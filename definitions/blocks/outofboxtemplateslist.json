@@ -26,6 +26,7 @@
                             "$jsoncodeintro$",
                             "$linkintro$",
                             "$picdescintro$",
+                            "$publicationsintro$",
                             "$reverseemailintro$",
                             "$templateintrointro$",
                             "$titlewdivintro$",
@@ -145,6 +146,22 @@
                         ["<code>_pdesc_template_height</code>: ", "$pdescintroheight$"],
                         ["<code>_pdesc_template_picwidth</code>: ", "$pdescintropicwidth$"],
                         ["<code>_pdesc_template_picheight</code>: ", "$pdescintropicheight$"]
+                    ]
+                }
+            }
+        ],
+        "publicationsintro": [
+            {
+                "name": "templateintro",
+                "vars": {
+                    "_ti_template_title": "publications",
+                    "_ti_template_intro": "$publicationsintroduction$",
+                    "_ti_template_macros": [
+                        ["<code>_pub_template_authors</code>: ", "$pubintroauthors$"],
+                        ["<code>_pub_template_title</code>: ", "$pubintrotitle$"],
+                        ["<code>_pub_template_pubon</code>: ", "$pubintropubon$"],
+                        ["<code>_pub_template_year</code>: ", "$pubintroyear$"],
+                        ["<code>_pub_template_align</code>: ", "$pubintroalign$"]
                     ]
                 }
             }
