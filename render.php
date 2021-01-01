@@ -13,7 +13,7 @@ $usedJS = [];
 $onloadJS = [];
 $payload = json_decode($payload, true);
 if ($payload['type'] == ''){
-    die("File $file error: Unable to parse JSON, or failed to open file.");
+    dieVars(false, false, '', ['html'=>"File $file error: Unable to parse JSON, or failed to open file.", 'js'=>[]]);
 }
 
 $definition = [];
@@ -35,7 +35,7 @@ function parse($payload){
     foreach ($usedCSS as $css){
         $result .= "<link rel=\"stylesheet\" href=\"$css\">";
     }
-    return ["html"=>$result . $html, "js"=>$usedJS];
+    return ['html'=>$result . $html, 'js'=>$usedJS];
 }
 
 function parse_all($payload, $attrenv, $varenv){
@@ -79,7 +79,7 @@ function parse_all($payload, $attrenv, $varenv){
             $defFromDir = '';
             $result = loadfile($loaddir, $payload['name'] . '.json', $defFromDir);
             if ($result === false){
-                die('Failed to open ' . $payload['name'] . '.json for parsing.');
+                dieVars(false, false, '', ['html'=>'Failed to open ' . $payload['name'] . '.json for parsing.', 'js'=>[]]);
             }
             $definition[$payload['name']] = json_decode($result, true);
             if (!array_key_exists('css', $definition[$payload['name']])){
@@ -132,7 +132,7 @@ function parse_all($payload, $attrenv, $varenv){
                 break;
         }
     }else{
-        die('Malformed JSON.');
+        dieVars(false, false, '', ['html' => 'Malformed JSON.', 'js'=>[]]);
     }
 }
 
