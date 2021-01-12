@@ -5,9 +5,9 @@ function setHash(theHash){
 	
 	var sharpIndex = window.location.href.indexOf("#");
 	if (sharpIndex === -1) {
-	  window.location.href = window.location.href + "#" + theHash;
+	    window.location.replace(window.location.href + "#" + theHash);
 	} else {
-	  window.location.href = window.location.href.substr(0, sharpIndex) + "#" + theHash;
+	    window.location.href = window.location.href.substr(0, sharpIndex) + "#" + theHash;
 	}
 	if ($("#mainArea").html().trim() == ""){
 		getWebpage(settings['index']);

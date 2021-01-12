@@ -33,7 +33,7 @@ window.onhashchange = function(){
 }
 
 function handleHash(){
-	hash = ""
+	hash = "";
 	try {
     	hash = (!window.location.hash) ? "#" + data['index'] : decodeURI(window.location.hash);
 	}catch (err){
