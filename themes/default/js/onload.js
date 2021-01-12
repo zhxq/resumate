@@ -35,10 +35,10 @@ window.onhashchange = function(){
 function handleHash(){
 	hash = ""
 	try {
-    	hash = (!window.location.hash) ? "#index" : decodeURI(window.location.hash);
+    	hash = (!window.location.hash) ? "#" + data['index'] : decodeURI(window.location.hash);
 	}catch (err){
 		alert('Failed to get hash. Error details: ' + err.message);
-		hash = "#index"
+		hash = "#" + data['index'];
 	}
 	
 	$('#lastHash').val($('#currentHash').val());
