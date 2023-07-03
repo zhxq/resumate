@@ -1,0 +1,77 @@
+{
+    "type": "template",
+    "js": ["https://cdn.jsdelivr.net/npm/exif-js", "./js/picwithexif.js"],
+    "name": "picwithexif",
+    "content": [
+        {
+            "name": "div",
+            "attr": {
+                "style": {
+                    "width": "$_pwexif_template_divwidth$",
+                    "height": "$_pwexif_template_divheight$",
+                    "display": "$_pwexif_template_divdisplay$",
+                    "margin": "$_pwexif_template_divmargin$"
+                },
+                "class": ["picwithexifsinglecontainer"]
+            },
+            "content": [
+                {
+                    "name": "a",
+                    "attr": {
+                        "href": "$_pwexif_template_src$",
+                        "target": "_blank"
+                    },
+                    "content": [
+                        {
+                            "name": "pic",
+                            "attr": {
+                                "style": {
+                                    "width": "$_pwexif_template_picwidth$",
+                                    "height": "$_pwexif_template_picheight$",
+                                    "max-width": "100%",
+                                    "margin": "20px 0px 0px 0px"
+                                },
+                                "id": ["$_pwexif_template_id$", "_pic"],
+                                "onload": ["picwithexif_call('", "$_pwexif_template_id$", "');"]
+                            },
+                            "vars": {
+                                "src": "$_pwexif_template_src$"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "h4",
+                    "content": ["$_pwexif_template_title$"]
+                },
+                {
+                    "name": "h6",
+                    "vars": {
+                        "src": "$_pwexif_template_src$"
+                    },
+                    "attr":{
+                        "id": ["$_pwexif_template_id$", "_exif"]
+                    },
+                    "content": ""
+                    
+                },
+                {
+                    "name": "p",
+                    "content": ["$_pwexif_template_description$"]
+                }
+            ]
+        }
+    ],
+    "vars": {
+        "_pwexif_template_id": "",
+        "_pwexif_template_divwidth": "",
+        "_pwexif_template_divheight": "",
+        "_pwexif_template_divdisplay": "inline-table",
+        "_pwexif_template_divmargin": "",
+        "_pwexif_template_picwidth": "",
+        "_pwexif_template_picheight": "",
+        "_pwexif_template_src": "/img/test.png",
+        "_pwexif_template_title": "Title",
+        "_pwexif_template_description": "This is a description."
+    }
+}

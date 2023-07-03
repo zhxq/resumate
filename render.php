@@ -2,8 +2,6 @@
 require_once('func.php');
 header("X-Parsed-By: Resumate $resumate_version - Build your page using JSON. https://resumate.io/");
 
-error_reporting(0);
-
 $file = $_POST['filename'];
 $theme = getSetting('theme');
 $payload = file_get_contents('./definitions/pages/' . $file);
@@ -74,6 +72,23 @@ function parse_all($payload, $attrenv, $varenv){
         }
         return $return;
     }elseif ($payload['name'] != null){
+        if (gettype($payload['name']) == gettype('')){
+            $payload['name'] = [$payload['name']];
+        }
+        foreach ($payload['name'] as &$ve){
+            if ($ve[0] == '$' && $ve[-1] == '$'){
+                $keyname = substr($ve, 1, -1);
+                $ve = $varenv[$keyname];
+                if ($ve == null){
+                    $ve = $def['default']['attr'][$keyname];
+                    if ($ve[0] == '$' && $ve[-1] == '$'){
+                        $ve = $varenv[$keyname];
+                    }
+                }
+            }
+        }
+        $payload['name'] = implode('', $payload['name']);
+
         if (!array_key_exists($payload['name'], $definition)){
             //load definition from JSON file
             $defFromDir = '';
@@ -238,6 +253,12 @@ function resolve_attrenv($default, $defattr, $attr, $attrenv, $varenv){
                 }
             }
         }elseif($dk == 'class'){
+            if (gettype($attrenv['class']) == gettype('')){
+                $attrenv['class'] = [$attrenv['class']];
+            }
+            if (gettype($defattr['class']) == gettype('')){
+                $defattr['class'] = [$defattr['class']];
+            }
             $attrenv['class'] = array_merge($attrenv['class'], $defattr['class']);
         }else{
             if (!array_key_exists($dk, $attrenv)){
@@ -365,16 +386,23 @@ function parse_def($payload, $attrenv, $varenv){
             $tmp = 'class="' . $d . '"';
             if ($d != '') $attrStr .= " $tmp";
         }else{
-            if ($v[0] == '$' && $v[-1] == '$'){
-                $keyname = substr($v, 1, -1);
-                $v = $varenv[$keyname];
-                if ($v == null){
-                    $v = $def['default']['attr'][$keyname];
-                    if ($v[0] == '$' && $v[-1] == '$'){
-                        $v = $varenv[$keyname];
+            $varr = $v;
+            if (gettype($v) == gettype('')){
+                $varr = [$v];
+            }
+            foreach ($varr as &$ve){
+                if ($ve[0] == '$' && $ve[-1] == '$'){
+                    $keyname = substr($ve, 1, -1);
+                    $ve = $varenv[$keyname];
+                    if ($ve == null){
+                        $ve = $def['default']['attr'][$keyname];
+                        if ($ve[0] == '$' && $ve[-1] == '$'){
+                            $ve = $varenv[$keyname];
+                        }
                     }
                 }
             }
+            $v = implode('', $varr);
             $attrStr .= " $k=\"$v\"";
         }
     }
@@ -385,8 +413,8 @@ function parse_def($payload, $attrenv, $varenv){
     }
     
     $return = '';
-    if (!array_key_exists('content', $payload) || count($payload['content']) == 0){
-        $payload['content'] = json_decode(json_encode($varenv['content']), true);
+    if (!array_key_exists('content', $payload) || (gettype($payload['content']) == gettype([]) && count($payload['content']) == 0) || $payload['content'] == ''){
+        //$payload['content'] = json_decode(json_encode($varenv['content']), true);
     }
     
     
@@ -400,9 +428,11 @@ function parse_def($payload, $attrenv, $varenv){
     }
     
     if (gettype($payload['content']) == gettype([])){
-        foreach ($payload['content'] as $c){
+        foreach ($payload['content'] as &$c){
             //echo("\n====================START===================\n");
-            //var_dump($c);
+            if (gettype($c) == gettype('')){
+                $c = [$c];
+            }
             $varenv['content'] = parse_all($c, $c['attr'], $varenv);
             //echo("\n=================tempresult=================\n");
             //var_dump($tempresult);
@@ -416,7 +446,7 @@ function parse_def($payload, $attrenv, $varenv){
                         while (($keyname = check_var($content)) !== false){
                             $content = $varenv[$keyname];
                         }
-                        $content = parse_all($content, $content['attr'], $varenv);
+                        $content = parse_all($content, [], $varenv);
                         $return .= $content;
                     }else{
                         $return .= $d;
@@ -427,6 +457,9 @@ function parse_def($payload, $attrenv, $varenv){
             }
             //echo("\n=====================END====================\n");
         }
+    }
+    if (!$def['close']){
+        return $start;
     }
     return $start . $return . $end;
 }

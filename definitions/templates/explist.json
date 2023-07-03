@@ -1,0 +1,25 @@
+{
+    "name": "explist",
+    "type": "template",
+    "css": ["./css/explist.css"],
+    "content": [
+        {
+            "name": "h3",
+            "content": ["$_explist_template_title$"]
+        },
+        {
+            "name": "ul",
+            "content": "$_explist_template_macros$",
+            "style": {
+                "text-align": "0 auto"
+            },
+            "attr": {
+                "class": ["explist_ul"]
+            }
+        }
+    ],
+    "vars": {
+        "_explist_template_title": "Experience List",
+        "_explist_template_macros": ["Experience 1", "Experience 2"]
+    }
+}

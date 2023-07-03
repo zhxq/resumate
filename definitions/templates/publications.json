@@ -10,7 +10,7 @@
                 }
             },
             "content": [
-                ["$_pub_template_authors$", ".<b> ", "$_pub_template_title$", "</b>. <i>", "$_pub_template_pubon$", "</i>. ", "$_pub_template_year$", "."]
+                ["$_pub_template_authors$", ".<b> ", "$_pub_template_title$", "</b>. <i>", "$_pub_template_pubon$", "</i> ", "$_pub_template_year$", "."]
             ]
         }
     ],

@@ -11,7 +11,7 @@
             },
             "content": [
                 {
-                    "name": "h3",
+                    "name": "$_twd_template_titletype$",
                     "content": ["$_twd_template_title$"]
                 },
                 {
@@ -27,7 +27,8 @@
     "vars": {
         "_twd_template_title": "Title",
         "_twd_template_paragraph": "Some content in Paragraph",
-        "_twd_template_maxwidth": "800px",
-        "_twd_template_align": "center"
+        "_twd_template_maxwidth": "80%",
+        "_twd_template_align": "center",
+        "_twd_template_titletype": "h3"
     }
 }
