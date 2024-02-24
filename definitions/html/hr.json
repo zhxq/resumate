@@ -13,6 +13,6 @@
     },
     "attr": {
         "style": {"width": "$width$", "margin": "$margin$", "padding": "$padding$"},
-        "class": "$class$"
+        "class": ["$class$"]
     }
 }

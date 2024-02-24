@@ -1,0 +1,15 @@
+@keyframes publicationbibcopied {
+    0%   {top: 0px;}
+    100% {top: -20px; opacity: 0;}
+}
+
+.publications-copied-label{
+    position: relative;
+}
+
+.publications-copying {
+    animation: publicationbibcopied .5s ease-in-out;
+    visibility: visible;
+    display: inline !important;
+    position: relative;
+}

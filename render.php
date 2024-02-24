@@ -80,10 +80,8 @@ function parse_all($payload, $attrenv, $varenv){
                 $keyname = substr($ve, 1, -1);
                 $ve = $varenv[$keyname];
                 if ($ve == null){
-                    $ve = $def['default']['attr'][$keyname];
-                    if ($ve[0] == '$' && $ve[-1] == '$'){
-                        $ve = $varenv[$keyname];
-                    }
+                    // Cannot render this block
+                    // because we cannot translate the macro into a real block name
                 }
             }
         }
@@ -164,15 +162,6 @@ function resolve_varenv($default, $defvars, $vars, $varenv){
     //Third:  varenv should try to get values again. If something exists in varenv, then read from varenv
     //Fourth: If that is not the case, read from default.
     
-
-    /*
-    echo("----------------------------------------\n");
-    var_dump($default);
-    var_dump($defvars);
-    var_dump($vars);
-    var_dump($varenv);
-    echo("\n");
-    */
     $newvarenv = json_decode(json_encode($varenv), true);
     foreach ($defvars as $k=>$v){
         if (array_key_exists($k, $newvarenv)){
@@ -190,7 +179,6 @@ function resolve_varenv($default, $defvars, $vars, $varenv){
             $newvarenv[$k] = $v;
         }
     }
-    //$newvarenv = array_replace($vars, $newvarenv);
     foreach ($newvarenv as $vk=>$vv){
         while (($keyname = check_var($newvarenv[$vk])) !== false){
             $newvarenv[$vk] = $newvarenv[$keyname];
@@ -213,14 +201,6 @@ function resolve_varenv($default, $defvars, $vars, $varenv){
         }
     }
 
-    /*
-    echo("\n");
-    var_dump($default);
-    var_dump($defvars);
-    var_dump($vars);
-    var_dump($newvarenv);
-    echo("----------------------------------------\n");
-    */
     return $newvarenv;
 }
 
@@ -239,12 +219,7 @@ function resolve_attrenv($default, $defattr, $attr, $attrenv, $varenv){
     $attrenv['style'] = array_replace($attr['style'], $attrenv['style']);
     $attrenv['class'] = array_replace($attr['class'], $attrenv['class']);
     $attrenv = array_replace($attr, $attrenv);
-    /*
-    echo("==============PHASE START==============\n\n");
-    echo("\n-----------PHASE 1 START----------\n");
-    var_dump($attrenv);
-    echo("\n------------PHASE 1 END-----------\n");
-    */
+    
     foreach ($defattr as $dk=>$dv){
         if ($dk == 'style'){
             foreach ($defattr['style'] as $sk=>$sv){
@@ -283,10 +258,13 @@ function resolve_attrenv($default, $defattr, $attr, $attrenv, $varenv){
                 if (($ckeyname = check_var($class)) !== false){
                     if (array_key_exists($ckeyname, $varenv)){
                         $class = $varenv[$ckeyname];
-                    }elseif (count($default['class']) > 0){
+                    }elseif (gettype($default['class']) == gettype([]) && count($default['class']) > 0){
+                        $class = trim(implode(" ", $default['class']));
+                    }elseif (gettype($default['class']) == gettype('')){
                         $class = $default['class'];
+                    }else{
+                        $class = '';
                     }
-                    
                 }
             }
         }else{
@@ -299,11 +277,7 @@ function resolve_attrenv($default, $defattr, $attr, $attrenv, $varenv){
             }
         }
     }
-    /*
-    echo("\n-----------PHASE 2 START----------\n");
-    var_dump($attrenv);
-    echo("\n------------PHASE 2 END-----------\n");
-    echo("==============PHASE ENDED==============\n\n");*/
+    
     return $attrenv;
 }
 
@@ -354,9 +328,6 @@ function parse_def($payload, $attrenv, $varenv){
     
     $def = $definition[$payload['name']];
     $start = '<' . $def['html'];
-    //echo("BEFORE:\n");
-    //var_dump($varenv);
-    //echo("AFTER:\n");
     mergecontentsanicheck($def, $varenv, $payload);
     $varenv = resolve_varenv($def['default']['vars'], $def['vars'], $payload['vars'], $varenv);
     mergeattrsanicheck($def, $attrenv, $payload);
@@ -382,7 +353,7 @@ function parse_def($payload, $attrenv, $varenv){
             $tmp = substr($tmp, 0, -1);
             if ($tmp != '') $attrStr .= " style=\"$tmp\"";
         }elseif ($k == "class"){
-            $d = implode(' ', $v);
+            $d = trim(implode(' ', $v));
             $tmp = 'class="' . $d . '"';
             if ($d != '') $attrStr .= " $tmp";
         }else{
@@ -429,18 +400,13 @@ function parse_def($payload, $attrenv, $varenv){
     
     if (gettype($payload['content']) == gettype([])){
         foreach ($payload['content'] as &$c){
-            //echo("\n====================START===================\n");
             if (gettype($c) == gettype('')){
                 $c = [$c];
             }
             $varenv['content'] = parse_all($c, $c['attr'], $varenv);
-            //echo("\n=================tempresult=================\n");
-            //var_dump($tempresult);
             
             foreach ($def['content'] as $kd=>$d){
                 if (gettype($d) == gettype('')){
-                    //echo("\n======================d======================\n");
-                    //echo($d);
                     if (($dkeyname = check_var($d)) !== false){
                         $content = $varenv[$dkeyname];
                         while (($keyname = check_var($content)) !== false){
@@ -455,7 +421,6 @@ function parse_def($payload, $attrenv, $varenv){
                     //echo("Error");
                 }
             }
-            //echo("\n=====================END====================\n");
         }
     }
     if (!$def['close']){
@@ -469,33 +434,55 @@ function parse_template($payload, $attrenv, $varenv){
     global $definition;
     $def = $definition[$payload['name']];
     $return = '';
-    //echo("Loading template: ");
-    //var_dump($payload);
-    //echo(" \n");
     
     mergecontentsanicheck($def, $varenv, $payload);
+    // A template may have local language string defs. Merge it.
+    if (array_key_exists('langvars', $def)){
+        $currentLang = currentLang();
+        // First try if an exact language match exists
+        $allLang = array_keys($def['langvars']);
+        $matchedLang = '';
+        foreach($allLang as $iterLang){
+            if ($currentLang == $iterLang){
+                // Use the definition of this local language string setting
+                // as defined by the template definition
+                $matchedLang = $currentLang;
+            }
+        }
+        // Now we try fuzzy search - as long as the main language code matches
+        // e.g., zh-cn and zh; en-us and en-gb
+        if ($matchedLang == ''){
+            foreach($allLang as $iterLang){
+                $generalIterLang = explode('-', $iterLang)[0];
+                $generalCurrentLang = explode('-', $currentLang)[0];
+                if ($generalCurrentLang == $generalIterLang){
+                    // e.g., en-us matches with en-gb
+                    $matchedLang = $iterLang;
+                }
+            }
+        }
+        // If no match
+        // we use default settings
+        if ($matchedLang == ''){
+            $matchedLang = 'default';
+        }
+        // Sanity check: check if lang exists
+        // e.g., what if a bad template design has no default langvars?
+        if (array_key_exists($matchedLang, $def['langvars'])){
+            // Overwrite $def['vars'] with locally defined language string
+            foreach ($def['langvars'][$matchedLang] as $k=>$v){
+                $def['vars'][$k] = $v;
+            }
+        }
+    }
     $varenv = resolve_varenv($def['default']['vars'], $def['vars'], $payload['vars'], $varenv);
     mergeattrsanicheck($def, $attrenv, $payload);
     $attrenv = resolve_attrenv($def['default']['attr'], $def['attr'], $payload['attr'], $attrenv, $varenv);
-    if ($payload['name'] == "asdfasdf"){
-        echo("\n\n------------------NAME------------------\n\n");
-        echo($payload['name']);
-        echo("\n\n------------------ATTR------------------\n\n");
-        var_dump($attrenv);
-        echo("\n\n------------------CONTENT------------------\n\n");
-        var_dump($varenv);
-        echo("\n\n------------------PAYLOAD------------------\n\n");
-        var_dump($payload);
-        echo("\n\n------------------=END=------------------\n\n");
-    }
     foreach ($def['content'] as $c){
         if (gettype($c) == gettype([])){
             $return .= parse_all($c, $c['attr'], $varenv);
         }
     }
-    //print("-------------TEMPLATE START-------------\n");
-    //print($return . "\n");
-    //print("--------------TEMPLATE END--------------\n");
     return $return;
 }
 function mergecontentsanicheck(&$def, &$varenv, &$payload){

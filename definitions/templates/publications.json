@@ -1,16 +1,62 @@
 {
     "name": "publications",
     "type": "template",
+    "js": ["./js/publications.js"],
+    "css": ["./css/publications.css"],
+    "acknowledgement": "This template uses glyphs from Octicons, available at https://octicons.github.com/, released under MIT license: https://github.com/primer/octicons/blob/main/LICENSE",
     "content": [
         {
             "name": "div",
             "attr": {
                 "style": {
                     "text-align": "$_pub_template_align$"
-                }
+                },
+                "class": ["publications_item_entry_not_processed"]
             },
             "content": [
-                ["$_pub_template_authors$", ".<b> ", "$_pub_template_title$", "</b>. <i>", "$_pub_template_pubon$", "</i> ", "$_pub_template_year$", "."]
+                [
+                    "$_pub_template_authors$", 
+                    ".<b> ", 
+                    "$_pub_template_title$", 
+                    "</b>. <i>", 
+                    "$_pub_template_pubon$", 
+                    "</i> ", 
+                    "$_pub_template_year$", 
+                    ".", 
+                    "<div style=\"width: 0.55em;display: inline-block;\"></div>",
+                    "<a class=\"paper-link-button\" title=\"",
+                    "$_pub_template_paperlinktext$",
+                    "\" href=\"",
+                    "$_pub_template_paper_link$",
+                    "\" target=\"_blank\" onclick=\"if ($(this).attr('href') == '' || $(this).attr('href') == undefined){alert('DOI is not yet available.');event.preventDefault();return false;}\"><h5 style=\"display: inline;\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"1em\" height=\"1em\" style=\"top: 0.125em; position: relative;\"><path fill=\"currentColor\" d=\"m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z\"></path></svg></h5></a>", 
+                    "<div style=\"width: 0.3em; display: inline-block;\"></div>",
+                    "<a class=\"presentation-slides-button\" title=\"",
+                    "$_pub_template_presentationdoclinktext$",
+                    "\" href=\"",
+                    "$_pub_template_slides_link$",
+                    "\"><h5 style=\"display: inline;\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"1em\" height=\"1em\" style=\"top: 0.125em; position: relative;\"><path fill=\"currentColor\" d=\"M0.01,3.64c0-0.97,0.78-1.75,1.75-1.75h12.5c0.97,0,1.75,0.78,1.75,1.75v8.5c0,0.97-0.78,1.75-1.75,1.75H1.76c-0.97,0-1.75-0.78-1.75-1.75V3.64z M1.76,3.39c-0.14,0-0.25,0.11-0.25,0.25v8.5c0,0.14,0.11,0.25,0.25,0.25h12.5c0.14,0,0.25-0.11,0.25-0.25v-8.5c0-0.14-0.11-0.25-0.25-0.25H1.76z\"/><path fill=\"currentColor\"d=\"M7.57,8c0,1.52-1.23,2.75-2.75,2.75c-1.51,0-2.75-1.23-2.75-2.75s1.24-2.75,2.75-2.75v2.43C4.76,7.7,4.74,7.71,4.74,7.71L4.83,7.7V8H7.57z\"/><path fill=\"currentColor\" d=\"M4.83,7.68V7.7L4.74,7.71C4.74,7.71,4.76,7.7,4.83,7.68z\"/><path fill=\"currentColor\" d=\"M4.83,7.68V7.7L4.74,7.71C4.74,7.71,4.76,7.7,4.83,7.68z\"/><path fill=\"currentColor\" d=\"M8.28,7.28H5.53V4.53c0.77,0,1.46,0.32,1.96,0.83h0.01C7.97,5.86,8.28,6.53,8.28,7.28z\"/><rect fill=\"currentColor\" x=\"8.78\" y=\"5.14\" width=\"5.25\" height=\"0.98\"/><rect fill=\"currentColor\" x=\"8.78\" y=\"7.28\" width=\"5.25\" height=\"0.98\"/><rect fill=\"currentColor\" x=\"8.78\" y=\"9.42\" width=\"5.25\" height=\"0.98\"/></svg></h5></a>",
+                    "<div style=\"width: 0.3em; display: inline-block;\"></div>",
+                    "<a class=\"presentation-video-button\" title=\"",
+                    "$_pub_template_presentationvideolinktext$",
+                    "\" href=\"",
+                    "$_pub_template_video_link$",
+                    "\"><h5 style=\"display: inline;\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"1em\" height=\"1em\" style=\"top: 0.125em; position: relative;\"><path fill=\"currentColor\" d=\"M16 3.75v8.5a.75.75 0 0 1-1.136.643L11 10.575v.675A1.75 1.75 0 0 1 9.25 13h-7.5A1.75 1.75 0 0 1 0 11.25v-6.5C0 3.784.784 3 1.75 3h7.5c.966 0 1.75.784 1.75 1.75v.675l3.864-2.318A.75.75 0 0 1 16 3.75Zm-6.5 1a.25.25 0 0 0-.25-.25h-7.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-6.5ZM11 8.825l3.5 2.1v-5.85l-3.5 2.1Z\"></path></svg></h5></a>",
+                    "<div style=\"width: 0.3em; display: inline-block;\"></div>",
+                    "<a class=\"publication-code-button\" title=\"",
+                    "$_pub_template_coderepolinktext$",
+                    "\" href=\"",
+                    "$_pub_template_code_link$",
+                    "\"><h5 style=\"display: inline;\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"1em\" height=\"1em\" style=\"top: 0.125em; position: relative;\"><path fill=\"currentColor\" d=\"M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06ZM3.28 7.78 1.81 9.25l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Zm8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z\"></path></svg></h5></a>",
+                    "<div style=\"width: 0.3em;display: inline-block;\"></div><a class=\"bibtex-copy-button\" title=\"BibTeX\" style=\"cursor: pointer\" onclick=\"copyBibTeX(this)\" data-bib=\"",
+                    "$_pub_template_bibtex$",
+                    "\"><h5 style=\"display: inline;\"><svg class=\"publications-copied-label\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" width=\"1em\" height=\"1em\"  style=\"top: 0.125em; position: relative;\"><path fill=\"currentColor\" d=\"M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z\"></path></svg></h5></a>"
+                ]
+            ]
+        },
+        {
+            "name": "script",
+            "content": [
+                "var allParentTag = $('.publications_item_entry_not_processed'); for(var i = 0; i < allParentTag.length; i++){var parentTag = allParentTag[i]; [['paper-link', 'href'], ['presentation-slides', 'href'], ['presentation-video', 'href'], ['publication-code', 'href'], ['bibtex-copy', 'data-bib']].forEach(element => {var selected = $($(parentTag).find(`.${element[0]}-button`)[0]); if (selected.attr(element[1]) == '' || selected.attr(element[1]) == undefined){selected.css('display', 'none');selected.next().css('display', 'none')}}); $(parentTag).removeClass('publications_item_entry_not_processed');}"
             ]
         }
     ],
@@ -19,6 +65,25 @@
         "_pub_template_title": "Baby on Board",
         "_pub_template_pubon": "Bigger than Jesus",
         "_pub_template_year": "1990",
+        "_pub_template_paper_link": "",
+        "_pub_template_bibtex": "",
+        "_pub_template_slides_link": "",
+        "_pub_template_video_link": "",
+        "_pub_template_code_link": "",
         "_pub_template_align": "left"
+    },
+    "langvars": {
+        "default": {
+            "_pub_template_paperlinktext": "Paper",
+            "_pub_template_presentationdoclinktext": "Presentation File",
+            "_pub_template_presentationvideolinktext": "Presentation Video",
+            "_pub_template_coderepolinktext": "Source Code"
+        },
+        "zh": {
+            "_pub_template_paperlinktext": "论文",
+            "_pub_template_presentationdoclinktext": "演示文稿",
+            "_pub_template_presentationvideolinktext": "演讲视频",
+            "_pub_template_coderepolinktext": "源代码"
+        }
     }
 }

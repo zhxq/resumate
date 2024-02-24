@@ -9,7 +9,8 @@
                 "margin": "20px",
                 "padding": "0px"
             }
-        }
+        },
+        "class": []
     },
     "attr": {
         "src": "$src$", 
@@ -19,6 +20,7 @@
             "margin": "$margin$", 
             "padding": "$padding$"
         },
-        "class": "$class$"
-    }
+        "class": ["$class$"]
+    },
+    "content": [""]
 }
