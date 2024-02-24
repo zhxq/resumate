@@ -171,7 +171,7 @@
         "educationbachelor": "Bachelor of Science in Mathematics at Brown University (2008-2012)",
         "educationdescription": "Above (including this paragraph) is rendered from <code>education</code> template of Resumate. I can provide 5 Macros: <code>_edu_template_title</code>, <code>_edu_template_phd</code>, <code>_edu_template_master</code>, <code>_edu_template_bachelor</code> and <code>_edu_template_comment</code> to the template, and the renderer will figure out the right thing, since the format is pre-defined by the writer of the template already.",
         "codeforabove": "Code for the Example Above",
-        "samplecodeexplain": "Explaination",
+        "samplecodeexplain": "Explanation",
         "samplecodeexplainmain": [
             "The code above referred <code>education</code> template and passed those 5 Macros to the template. When Resumate is parsing templates, it will find the value for the Macro and print it on the page.",
             {
