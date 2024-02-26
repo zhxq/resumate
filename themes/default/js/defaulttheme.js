@@ -83,7 +83,7 @@ jQuery.cachedScript = function( url, options ) {
 	options = $.extend( options || {}, {
 		dataType: "script",
 		cache: true,
-		async: false,
+		async: true,
 		url: url
 	});
 
@@ -105,14 +105,10 @@ function loadScript(script_url){
 
 function getWebpage(str) {
 	$('#lastIncludedPage').val(str);
-	var getWebpageAsync = true;
-	if (arguments[1] == false){
-		getWebpageAsync = false;
-	}
 	$.ajax({
 		type: "POST",
 		dataType: "json",
-		async: getWebpageAsync,
+		async: true,
 		url: 'render.php',
 		data: {
 			"filename": str + '.json'
@@ -175,7 +171,7 @@ function getModal(filename, title, button, onclick, onclose, paraArray){
 	$.ajax({
 		type: "POST",
 		dataType: "html",
-		async: false,
+		async: true,
 		url: "makemodal.php",
 		data: {
 			file: filename,
