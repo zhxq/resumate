@@ -35,10 +35,10 @@ window.onhashchange = function(){
 function handleHash(){
 	hash = "";
 	try {
-    	hash = (!window.location.hash) ? "#" + data['index'] : decodeURI(window.location.hash);
+    	hash = (!window.location.hash) ? "#!" + data['index'] : decodeURI(window.location.hash);
 	}catch (err){
 		alert('Failed to get hash. Error details: ' + err.message);
-		hash = "#" + data['index'];
+		hash = "#!" + data['index'];
 	}
 	
 	$('#lastHash').val($('#currentHash').val());
@@ -48,15 +48,7 @@ function handleHash(){
     var handlecase = hash.split('?');
 	if (handlecase[0] != lastHashArray[0]) $('.modal').modal('hide');
 	lastIncludedPage = $('#lastIncludedPage').val();
-	var page = handlecase[0].substr(1);
+	var page = handlecase[0].substr(2);
 	getWebpage(page);
 	changeActiveStatusByName(page);
-	/*
-    switch(handlecase[0]){
-        case '#maintainindex' :{
-            showModal('maintainindex','maintainindex','',"","getToLastNonFloatPage();");
-            changeActiveStatusByName('maintainindex');
-            break;
-        }
-    }*/
 }

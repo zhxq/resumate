@@ -1,13 +1,11 @@
 function setHash(theHash){
-	//$('#lastHash').val(window.location.hash.replace('#', ''));
+	theHash = theHash.replace('#!', '').replace('#', '');
 	
-	theHash = theHash.replace('#', '');
-	
-	var sharpIndex = window.location.href.indexOf("#");
+	var sharpIndex = window.location.href.indexOf("#!");
 	if (sharpIndex === -1) {
-	    window.location.replace(window.location.href + "#" + theHash);
+	    window.location.replace(window.location.href + "#!" + theHash);
 	} else {
-	    window.location.href = window.location.href.substr(0, sharpIndex) + "#" + theHash;
+	    window.location.href = window.location.href.substring(0, sharpIndex) + "#!" + theHash;
 	}
 	if ($("#mainArea").html().trim() == ""){
 		getWebpage(settings['index']);
@@ -23,8 +21,8 @@ function clickCollapseButton(){
 }
 
 function getBackHash(){
-	var lastHash = '#' + document.getElementById('lastHash').value;
-	if (lastHash == "#" || lastHash == "##"){
+	var lastHash = '!' + document.getElementById('lastHash').value;
+	if (lastHash == "#" || lastHash == "##" || lastHash == "#!" || lastHash == "!"){
 		setHash(settings['index']);
 		return;
 	}
@@ -40,7 +38,7 @@ function changeHash(theHash){
 }
 
 function getLastHash(){
-	return "#" + $('#lastHash').val().replace('#', '');
+	return "#!" + $('#lastHash').val().replace('#!', '');
 }
 
 function getHashInfoList(){
@@ -53,11 +51,11 @@ function getIfFloatIsOnStage(){
 }
 
 function getIfLastNonFloatHashExists(){
-	return ($('#lastNonFloatHash').val() == "" || $('#lastNonFloatHash').val() == "#") ? false : true;
+	return ($('#lastNonFloatHash').val() == "" || $('#lastNonFloatHash').val() == "#" || $('#lastNonFloatHash').val() == "#!") ? false : true;
 }
 
 function getLastNonFloatHash(){
-	return getIfLastNonFloatHashExists() == false ? "#index" : $('#lastNonFloatHash').val();
+	return getIfLastNonFloatHashExists() == false ? ("#!" + settings['index']) : $('#lastNonFloatHash').val();
 }
 
 function getToLastNonFloatPage(){
@@ -163,12 +161,11 @@ function getWebpage(str) {
 }
 
 function appendZero(s){
-	return ("00" + s).substr((s + "").length);
+	return ("00" + s).substring((s + "").length);
 }
 
 function getModal(filename, title, button, onclick, onclose, paraArray){
 	$('.modal').modal('hide');
-	//获取最后一次没有浮层的页面
 	if (!getIfFloatIsOnStage()){
 		$('#lastNonFloatHash').val(getLastHash());
 	}
